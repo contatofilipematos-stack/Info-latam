@@ -1,0 +1,8 @@
+{
+  "name": "Librito de Oraciones LATAM",
+  "description": "Página de ventas móvil de alta conversión para el librito de oraciones católicas para catequesis infantil.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
