@@ -554,7 +554,8 @@ export default function App() {
 
             {/* Core Display Headline */}
             <h1 className="text-[26px] sm:text-[30px] font-black font-heading text-sky-pastel-950 leading-[1.25] tracking-tight max-w-md mx-auto my-5 text-center px-1">
-              +500 Arquivos STL de Arte Sacra <br />
+              +500 Arquivos STL <br />
+              de Arte Sacra <br />
               <span className="text-pink-500 inline-block">Prontos para Imprimir</span>
             </h1>
 
