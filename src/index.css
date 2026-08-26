@@ -63,6 +63,19 @@
   animation: pulse-premium-button 2s ease-in-out infinite;
 }
 
+@keyframes infiniteScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-infinite-scroll {
+  animation: infiniteScroll 35s linear infinite;
+}
+
 /* Image protection & anti-download rules */
 img, svg {
   -webkit-user-select: none !important;

@@ -1,9 +1,63 @@
 <!doctype html>
-<html lang="es">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    <title>Librito de Oraciones Católicas</title>
+    <title>Pack +500 Arquivos STL Católicos para Impressão 3D</title>
+
+    <!-- Proteção Global contra falhas de JSON (undefined e circular references) -->
+    <script>
+      (function() {
+        var origParse = JSON.parse;
+        JSON.parse = function(text, reviver) {
+          if (text === undefined || text === null || text === 'undefined' || text === '' || text === 'null') {
+            return null;
+          }
+          try {
+            return origParse(text, reviver);
+          } catch (e) {
+            return null;
+          }
+        };
+
+        var origStringify = JSON.stringify;
+        JSON.stringify = function(val, replacer, space) {
+          if (val === undefined) return undefined;
+          var seen = new Set();
+          var safeReplacer = function(key, v) {
+            var res = v;
+            if (typeof replacer === 'function') {
+              try { res = replacer(key, v); } catch(err) { res = v; }
+            }
+            if (typeof res === 'object' && res !== null) {
+              if (
+                res instanceof Element ||
+                res instanceof Event ||
+                'nodeType' in res ||
+                'stateNode' in res ||
+                (typeof key === 'string' && (key.indexOf('__react') === 0 || key.indexOf('_react') === 0))
+              ) {
+                return undefined;
+              }
+              if (seen.has(res)) return undefined;
+              seen.add(res);
+            }
+            return res;
+          };
+          try {
+            return origStringify(val, safeReplacer, space);
+          } catch (e) {
+            try {
+              return origStringify(val, function(k, v) {
+                return (typeof v === 'object' && v !== null && (v instanceof Element || 'stateNode' in v)) ? undefined : v;
+              }, space);
+            } catch (err2) {
+              return '{}';
+            }
+          }
+        };
+      })();
+    </script>
 
     <!-- Preconnect CDNs de Rastreamento (Aceleração DNS + TLS para redes 3G/4G/5G) -->
     <link rel="preconnect" href="https://connect.facebook.net" crossorigin />

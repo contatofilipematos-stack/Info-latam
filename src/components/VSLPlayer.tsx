@@ -5,8 +5,8 @@ interface VSLPlayerProps {
 }
 
 export default function VSLPlayer({ onVideoComplete }: VSLPlayerProps) {
-  // Direct embedding of the provided Vimeo video (Vimeo ID: 1202210792)
-  const videoId = "1202210792";
+  // Direct embedding of the provided Vimeo video (Vimeo ID: 1221343877)
+  const videoId = "1221343877";
   const embedUrl = `https://player.vimeo.com/video/${videoId}?badge=0&autopause=0&title=0&byline=0&portrait=0`;
 
   return (
@@ -14,7 +14,7 @@ export default function VSLPlayer({ onVideoComplete }: VSLPlayerProps) {
       <iframe
         className="w-full h-full"
         src={embedUrl}
-        title="Presentación del Librito"
+        title="Apresentação do Livrinho"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
       ></iframe>

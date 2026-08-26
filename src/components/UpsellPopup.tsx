@@ -9,16 +9,15 @@ interface UpsellPopupProps {
 
 export default function UpsellPopup({ onClose, onAccept, onDecline }: UpsellPopupProps) {
   const popupItems = [
-    { text: "LIBRITO DE ORACIONES CATÓLICAS + BONOS", isBonus: false },
-    { text: "LIBRITO DE PRIMERA COMUNIÓN (MATERIAL EXTRA)", isBonus: false },
-    { text: "LIBRITO PARA CONFIRMACIÓN (MATERIAL EXTRA)", isBonus: false },
-    { text: "La Santa Misa Explicada (BONO)", isBonus: true },
-    { text: "Los 10 Mandamientos P/Niños (BONO)", isBonus: true },
-    { text: "¿Quién es Nuestra Señora? (BONO)", isBonus: true },
-    { text: "La Historia de la Virgen María (BONO)", isBonus: true },
-    { text: "Licencia para impresión", isBonus: false },
-    { text: "Acceso Vitalicio y Actualizaciones Gratuitas", isBonus: false },
-    { text: "PDFs listos para impresión A4 de alta definición", isBonus: false },
+    { text: "+500 Arquivos STL Católicos", isBonus: false },
+    { text: "Uso comercial liberado e sem limite", isBonus: false },
+    { text: "Bônus 1: Guia de Produtos Católicos que Mais Vendem", isBonus: true },
+    { text: "Bônus 2: Tabela de Preços para Produtos 3D Católicos", isBonus: true },
+    { text: "Bônus 3: Guia de Configuração para Impressão", isBonus: true },
+    { text: "Bônus 4: Mockups para Divulgação", isBonus: true },
+    { text: "Bônus 5: Guia de Acabamento e Pintura", isBonus: true },
+    { text: "Bônus 6: Pack de Luminárias 3D", isBonus: true },
+    { text: "Acesso Vitalício & Envio Imediato", isBonus: false },
   ];
 
   return (
@@ -32,7 +31,7 @@ export default function UpsellPopup({ onClose, onAccept, onDecline }: UpsellPopu
         <button 
           onClick={onClose}
           className="absolute top-2.5 right-2.5 sm:top-3.5 sm:right-3.5 text-stone-400 hover:text-stone-600 bg-stone-100 hover:bg-stone-200 p-1 sm:p-1.5 rounded-full transition-colors cursor-pointer z-20"
-          aria-label="Cerrar"
+          aria-label="Fechar"
         >
           <X className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
         </button>
@@ -41,14 +40,14 @@ export default function UpsellPopup({ onClose, onAccept, onDecline }: UpsellPopu
           
           {/* Headline */}
           <h2 className="text-lg sm:text-2xl font-black font-heading text-stone-900 leading-tight mb-0.5 sm:mb-1">
-            ¡Espera! No pierdas el <span className="block text-[#e5007d]">Material Completo</span>
+            Espere! Leve o <span className="block text-[#e5007d]">Material Completo</span>
           </h2>
           
           <p className="text-stone-600 text-[10px] sm:text-xs font-medium mb-2 sm:mb-2.5 leading-tight">
-            ¡Liberamos un descuento exclusivo para que asegures el material completo con todos los bonos incluidos!
+            Liberamos um desconto exclusivo para você levar todos os +500 arquivos STL e os 6 bônus inclusos por apenas:
           </p>
 
-          {/* Key included benefits list - All items fully displayed without scroll */}
+          {/* Key included benefits list */}
           <div className="bg-stone-50/90 rounded-lg sm:rounded-2xl p-2 sm:p-3 border border-stone-200/70 text-left mb-2 sm:mb-3 space-y-0.5 sm:space-y-1 text-[9.5px] sm:text-xs">
             {popupItems.map((item, index) => (
               <div key={index} className="flex items-start gap-1 sm:gap-1.5 text-stone-800 font-semibold leading-tight">
@@ -65,8 +64,8 @@ export default function UpsellPopup({ onClose, onAccept, onDecline }: UpsellPopu
           {/* Price Box */}
           <div className="bg-pink-50 rounded-lg sm:rounded-xl p-1.5 sm:p-2 border border-pink-200/80 mb-2 sm:mb-3">
             <div className="flex items-center justify-center gap-1.5 sm:gap-2">
-              <span className="line-through text-stone-400 text-[11px] sm:text-sm font-bold">R$ 27,00</span>
-              <span className="text-xl sm:text-3xl font-black font-heading text-[#e5007d]">
+              <span className="line-through text-stone-400 text-[11px] sm:text-sm font-bold">R$ 47,00</span>
+              <span className="text-2xl sm:text-4xl font-black font-heading text-[#e5007d]">
                 R$ 17,00
               </span>
             </div>
@@ -77,12 +76,12 @@ export default function UpsellPopup({ onClose, onAccept, onDecline }: UpsellPopu
             onClick={onAccept}
             className="w-full bg-gradient-to-r from-[#00a85a] to-[#12a364] hover:from-[#00924e] hover:to-[#0f8f57] text-white font-heading font-black text-xs sm:text-sm py-2.5 sm:py-3.5 px-2.5 rounded-full shadow-lg shadow-emerald-600/20 transition-all duration-200 active:scale-97 cursor-pointer flex items-center justify-center gap-2 uppercase tracking-wide whitespace-nowrap animate-pulse-premium-button"
           >
-            <span>Quiero el Material Completo</span>
+            <span>Quero o Material Completo por R$ 17</span>
           </button>
 
           {/* WhatsApp & Email delivery badge */}
           <div className="flex items-center justify-center mt-2 text-stone-600 font-medium text-[9.5px] sm:text-[11px] text-center">
-            <span>Recíbelo en tu <strong>WhatsApp</strong> y <strong>E-mail</strong></span>
+            <span>Acesso imediato enviado para seu WhatsApp e E-mail</span>
           </div>
 
           {/* Decline button */}
@@ -90,7 +89,7 @@ export default function UpsellPopup({ onClose, onAccept, onDecline }: UpsellPopu
             onClick={onDecline}
             className="mt-1.5 sm:mt-2 text-stone-400 text-[9.5px] sm:text-xs font-bold hover:text-stone-600 transition-colors cursor-pointer underline decoration-stone-300 underline-offset-4"
           >
-            No, gracias. Prefiero quedarme solo con el básico
+            Não, obrigado. Prefiro ficar apenas com o básico de R$ 10
           </button>
 
         </div>
@@ -98,4 +97,3 @@ export default function UpsellPopup({ onClose, onAccept, onDecline }: UpsellPopu
     </div>
   );
 }
-

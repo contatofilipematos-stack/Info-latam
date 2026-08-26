@@ -1,88 +1,94 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React from 'react';
 
-export const BOOKLET_PAGES = [
+export const SACRED_ART_MODELS = [
   {
     id: 1,
-    alt: 'Página del Librito de Oraciones 1',
-    url: 'https://iili.io/CSeHjyX.md.jpg',
+    alt: 'Quadro Sagrada Família em Alto Relevo 3D',
+    url: 'https://iili.io/CDQs4O7.md.webp',
   },
   {
     id: 2,
-    alt: 'Página del Librito de Oraciones 2',
-    url: 'https://iili.io/CSeHeZG.md.jpg',
+    alt: 'Presépio Sagrada Família com Estrela Guia 3D',
+    url: 'https://iili.io/CDQsrRS.md.webp',
   },
   {
     id: 3,
-    alt: 'Página del Librito de Oraciones 3',
-    url: 'https://iili.io/CSeHNun.md.jpg',
+    alt: 'Terço Católico Esculpido em Detalhe 3D',
+    url: 'https://iili.io/CDQsgJ2.md.webp',
   },
   {
     id: 4,
-    alt: 'Página del Librito de Oraciones 4',
-    url: 'https://iili.io/CSeHOjs.md.jpg',
+    alt: 'Oratório Hexagonal Iluminado com Reis Magos 3D',
+    url: 'https://iili.io/CDQsSUl.md.webp',
   },
   {
     id: 5,
-    alt: 'Página del Librito de Oraciones 5',
-    url: 'https://iili.io/CSeHvnf.md.jpg',
+    alt: 'Letreiro e Peça Decorativa Sacra 3D',
+    url: 'https://iili.io/CDQssWu.md.webp',
   },
   {
     id: 6,
-    alt: 'Página del Librito de Oraciones 6',
-    url: 'https://iili.io/CSeH8G4.md.jpg',
+    alt: 'Modelo de Arte Sacra 3D 6',
+    url: 'https://iili.io/CDQsLib.md.webp',
   },
   {
     id: 7,
-    alt: 'Página del Librito de Oraciones 7',
-    url: 'https://iili.io/CSeHS6l.md.jpg',
+    alt: 'Modelo de Arte Sacra 3D 7',
+    url: 'https://iili.io/CDQst0x.md.webp',
+  },
+  {
+    id: 8,
+    alt: 'Modelo de Arte Sacra 3D 8',
+    url: 'https://iili.io/CDQsDUQ.md.webp',
+  },
+  {
+    id: 9,
+    alt: 'Modelo de Arte Sacra 3D 9',
+    url: 'https://iili.io/CDQsmJV.md.webp',
+  },
+  {
+    id: 10,
+    alt: 'Modelo de Arte Sacra 3D 10',
+    url: 'https://iili.io/CDQsp5B.md.webp',
+  },
+  {
+    id: 11,
+    alt: 'Modelo de Arte Sacra 3D 11',
+    url: 'https://iili.io/CDQLJzF.md.webp',
+  },
+  {
+    id: 12,
+    alt: 'Modelo de Arte Sacra 3D 12',
+    url: 'https://iili.io/CDQLdWg.md.webp',
   },
 ];
 
+// Duplicamos a lista para criar um loop infinito contínuo e suave sem cortes
+const CAROUSEL_ITEMS = [...SACRED_ART_MODELS, ...SACRED_ART_MODELS];
+
 export const BookletCarousel: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-
-  const totalPages = BOOKLET_PAGES.length;
-
-  const nextSlide = useCallback(() => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % totalPages);
-  }, [totalPages]);
-
-  // Auto play interval (3.5 seconds per slide)
-  useEffect(() => {
-    timerRef.current = setInterval(() => {
-      nextSlide();
-    }, 3500);
-
-    return () => {
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-      }
-    };
-  }, [nextSlide]);
-
   return (
-    <div className="w-full max-w-md mx-auto overflow-hidden">
-      <div className="relative w-full overflow-hidden rounded-2xl shadow-sm">
-        <div 
-          className="flex w-full transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-        >
-          {BOOKLET_PAGES.map((page, idx) => (
-            <div 
-              key={page.id} 
-              className="w-full flex-shrink-0 flex items-center justify-center"
-            >
-              <img
-                src={page.url}
-                alt={page.alt}
-                className="w-full h-auto object-cover select-none block"
-                loading={idx === 0 ? "eager" : "lazy"}
-                referrerPolicy="no-referrer"
-              />
-            </div>
-          ))}
-        </div>
+    <div className="w-full relative overflow-hidden py-3 select-none">
+      {/* Suaves máscaras de desvanecimento nas bordas claras da página */}
+      <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-r from-sky-50/70 to-transparent z-10" />
+      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-l from-sky-50/70 to-transparent z-10" />
+
+      {/* Faixa animada contínua e suave (marquise automática sem botões) */}
+      <div className="flex w-max gap-3 sm:gap-4.5 animate-infinite-scroll hover:[animation-play-state:paused]">
+        {CAROUSEL_ITEMS.map((item, idx) => (
+          <div
+            key={`${item.id}-${idx}`}
+            className="flex-shrink-0 w-[185px] xs:w-[210px] sm:w-[250px] md:w-[275px] aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden bg-white shadow-md border border-stone-200/70 transform-gpu transition-transform duration-300"
+          >
+            <img
+              src={item.url}
+              alt={item.alt}
+              className="w-full h-full object-cover select-none pointer-events-none block"
+              loading={idx < 4 ? 'eager' : 'lazy'}
+              referrerPolicy="no-referrer"
+            />
+          </div>
+        ))}
       </div>
     </div>
   );

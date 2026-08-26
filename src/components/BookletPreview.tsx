@@ -9,71 +9,71 @@ interface BookletPreviewProps {
 const previewPages: BookletPage[] = [
   {
     pageNumber: 1,
-    title: "Querido Dios",
-    subTitle: "Portada del Librito Ilustrado",
+    title: "Querido Deus",
+    subTitle: "Capa do Livrinho Ilustrado",
     contentLines: [
-      "🌸 Colección Pequeñas Semillas de Fe 🌸",
+      "🌸 Coleção Pequenas Sementes de Fé 🌸",
       "",
-      "MIS PRIMERAS CONVERSACIONES CON DIOS",
+      "MINHAS PRIMEIRAS CONVERSAS COM DEUS",
       "",
-      "Una guía ilustrada amorosa con oraciones del día a día, el Santo Rosario en rimas suaves y dulces dibujos para colorear.",
+      "Um guia ilustrado amoroso com orações do dia a dia, o Santo Terço em rimas suaves e lindos desenhos para colorir.",
       "",
-      "❤ ¡Ama, Cree y Reza Sonriendo!"
+      "❤ Ame, Creia e Reze Sorrindo!"
     ],
-    illustrationDesc: "Marco acuarela celeste con angelitos y estrellas fugaces",
+    illustrationDesc: "Moldura aquarela celeste com anjinhos e estrelas cadentes",
     graphicStyle: "angel"
   },
   {
     pageNumber: 2,
-    title: "Mi Oración de la Mañana",
-    subTitle: "Al despertar con el corazón alegre",
+    title: "Minha Oração da Manhã",
+    subTitle: "Ao acordar com o coração alegre",
     contentLines: [
-      "☀ DIOS PADRE:",
-      "¡Gracias por un día hermoso de sol! Bendice mis ojitos para ver el bien, mi boquita para decir palabras dulces, y mis pies para caminar en tu amor. Santo Ángel del Señor, protégeme hoy. Amén."
+      "☀ DEUS PAI:",
+      "Obrigado por este lindo dia de sol! Abençoai meus olhinhos para ver o bem, minha boquinha para falar palavras doces, e meus pezinhos para caminhar no vosso amor. Santo Anjo do Senhor, protegei-me hoje. Amém."
     ],
-    illustrationDesc: "Sol sonriente sobre nubes afelpadas en acuarela",
+    illustrationDesc: "Sol sorridente sobre nuvens fofas em aquarela",
     graphicStyle: "candle"
   },
   {
     pageNumber: 3,
-    title: "El Rosario de los Pequeños",
-    subTitle: "Explicado de manera suave y dulce",
+    title: "O Terço dos Pequeninos",
+    subTitle: "Explicado de maneira suave e doce",
     contentLines: [
-      "Cómo rezar el rosario con María:",
-      "✨ Señal de la Cruz: Toca la frente, el pecho y los hombros despacio, sintiendo el abrazo de Jesús.",
-      "✨ Cuentita Blanca: Reza 1 Padre Nuestro (Agradeciendo por nuestra hermosa familia).",
-      "✨ Cuentita Azul: Ofrece 1 Ave María (Dando un besito de amor a la Mamita del Cielo)."
+      "Como rezar o terço com Maria:",
+      "✨ Sinal da Cruz: Toque a testa, o peito e os ombros devagar, sentindo o abraço de Jesus.",
+      "✨ Continha Branca: Reze 1 Pai Nosso (Agradecendo por nossa linda família).",
+      "✨ Continha Azul: Ofereça 1 Ave Maria (Dando um beijinho de amor na Mãezinha do Céu)."
     ],
-    illustrationDesc: "Cuentas del rosario en forma de corazones y nubecitas azules",
+    illustrationDesc: "Contas do rosário em formato de corações e nuvenzinhas azuis",
     graphicStyle: "rosary"
   },
   {
     pageNumber: 4,
-    title: "Corazoncito Limpio",
-    subTitle: "Preparando el Alma para la Confesión Infantil",
+    title: "Coraçãozinho Limpo",
+    subTitle: "Preparando a Alma para a Confissão Infantil",
     contentLines: [
-      "Preguntitas dulces para hacer con Jesús antes de dormir:",
-      "🌸 ¿Guardé mis juguetes con amor y sin reclamar?",
-      "🌸 ¿Ayudé a mis amiguitos en la escuela?",
-      "🌸 ¿Dije la verdad a papá y a mamá hoy?",
-      "🌸 ¿Recé a mi Santo Ángel con cariño?"
+      "Perguntinhas doces para fazer com Jesus antes de dormir:",
+      "🌸 Guardei meus brinquedos com amor e sem reclamar?",
+      "🌸 Ajudei meus amiguinhos na escola?",
+      "🌸 Falei a verdade para o papai e a mamãe hoje?",
+      "🌸 Rezei para o meu Santo Anjo com carinho?"
     ],
-    illustrationDesc: "Un angelito sosteniendo un corazón brillante de estrellas",
+    illustrationDesc: "Um anjinho segurando um coração brilhante de estrelas",
     graphicStyle: "cross"
   },
   {
     pageNumber: 5,
-    title: "Actividades y Pintura",
-    subTitle: "Jugar y fijar el amor de Dios",
+    title: "Atividades e Pintura",
+    subTitle: "Brincar e fixar o amor de Deus",
     contentLines: [
-      "🎨 Lo que vas a encontrar en el Kit Completo:",
-      "• Páginas enteras de dibujos infantiles para colorear",
-      "• Une los puntos con la palomita de la paz",
-      "• Laberinto de la ovejita perdida volviendo al Buen Pastor",
+      "🎨 O que você vai encontrar no Kit Completo:",
+      "• Páginas inteiras de desenhos infantis para colorir",
+      "• Ligue os pontos com a pombinha da paz",
+      "• Labirinto da ovelhinha perdida voltando ao Bom Pastor",
       "",
-      "¡Colorear lo Sagrado ayuda a nuestros recuerdos a guardar la fe!"
+      "Colorir o Sagrado ajuda nossas memórias a guardar a fé!"
     ],
-    illustrationDesc: "Jesús abraza a una ovejita tierna para que los niños la pinten",
+    illustrationDesc: "Jesus abraça uma ovelhinha fofa para as crianças pintarem",
     graphicStyle: "dove"
   }
 ];
@@ -99,10 +99,10 @@ export default function BookletPreview({ coverImageUrl }: BookletPreviewProps) {
     <div className="w-full max-w-md mx-auto py-4 font-sans">
       <div className="text-center mb-5">
         <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-sky-pastel-100 text-sky-pastel-700 text-xs font-bold rounded-full border border-sky-pastel-200">
-          <BookOpen className="w-3.5 h-3.5" /> ECHA UN VISTAZO A LAS PÁGINAS POR DENTRO
+          <BookOpen className="w-3.5 h-3.5" /> DÊ UMA OLHADA NAS PÁGINAS POR DENTRO
         </span>
-        <h3 className="text-lg font-bold text-sky-pastel-900 mt-1.5 font-heading">Lúdico, Delicado y de Fácil Lectura</h3>
-        <p className="text-xs text-stone-500">Toca o arrastra para hojear el librito virtual simulado:</p>
+        <h3 className="text-lg font-bold text-sky-pastel-900 mt-1.5 font-heading">Lúdico, Delicado e de Fácil Leitura</h3>
+        <p className="text-xs text-stone-500">Toque ou arraste para folhear o livrinho virtual simulado:</p>
       </div>
 
       {/* Book Layout Simulator - Light blue, white, feminine look */}
@@ -137,7 +137,7 @@ export default function BookletPreview({ coverImageUrl }: BookletPreviewProps) {
               <div className="mx-auto w-16 h-20 mb-3 bg-sky-pastel-50 border border-sky-pastel-200 rounded-lg shadow-2xs flex items-center justify-center overflow-hidden">
                 <img 
                   src={coverImageUrl} 
-                  alt="Portada del Librito Semilla de Fe" 
+                  alt="Capa do Livrinho Sementes de Fé" 
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />
@@ -166,12 +166,12 @@ export default function BookletPreview({ coverImageUrl }: BookletPreviewProps) {
           {/* Bottom illustration indicator description */}
           <div className="z-10 text-center text-[9px] text-sky-pastel-600 bg-sky-pastel-50/70 p-2 rounded-lg border border-sky-pastel-100 flex items-center justify-center gap-1">
             <Sparkles className="w-3.5 h-3.5 text-pink-400 fill-pink-300 flex-shrink-0" />
-            <span className="font-heading">Versión Física Idealizada: {activePage.illustrationDesc}</span>
+            <span className="font-heading">Versão Física Idealizada: {activePage.illustrationDesc}</span>
           </div>
 
           {/* Page Number footer */}
           <div className="z-10 flex justify-between items-center text-[8px] font-mono text-stone-400 mt-2 px-1">
-            <span>© SEMILLA DE FE</span>
+            <span>© SEMENTES DE FÉ</span>
             <span className="bg-sky-pastel-100 text-sky-pastel-700 font-bold px-2 py-0.5 rounded-full">Pág. {activePage.pageNumber}</span>
           </div>
         </div>
@@ -200,7 +200,7 @@ export default function BookletPreview({ coverImageUrl }: BookletPreviewProps) {
         </button>
 
         <span className="text-[10px] text-stone-500 font-sans flex items-center gap-1 font-medium">
-          <Heart className="w-3 h-3 text-pink-400 fill-pink-300" /> Hojea el PDF
+          <Heart className="w-3 h-3 text-pink-400 fill-pink-300" /> Folheie o PDF
         </span>
 
         <button
@@ -208,7 +208,7 @@ export default function BookletPreview({ coverImageUrl }: BookletPreviewProps) {
           disabled={currentPageIndex === previewPages.length - 1}
           className={`flex items-center gap-1 text-[11px] font-bold py-1.5 px-3.5 rounded-full border transition ${currentPageIndex === previewPages.length - 1 ? 'opacity-30 border-stone-200 text-stone-400' : 'bg-sky-pastel-500 border-sky-pastel-500 text-white hover:bg-sky-pastel-600 shadow-xs'}`}
         >
-          Siguiente <ChevronRight className="w-3.5 h-3.5" />
+          Próximo <ChevronRight className="w-3.5 h-3.5" />
         </button>
       </div>
     </div>

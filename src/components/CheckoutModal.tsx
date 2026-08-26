@@ -28,13 +28,13 @@ export default function CheckoutModal({ isOpen, onClose, product }: CheckoutModa
 
   const finalProduct: Product = product || {
     id: 'digital',
-    name: 'Librito Digital (PDF)',
-    badge: 'Más Económico',
+    name: 'Livrinho Digital (PDF)',
+    badge: 'Mais Econômico',
     price: 5.90,
     originalPrice: 19.90,
-    description: 'Versión en PDF de alta calidad para leer en el celular o imprimir.',
+    description: 'Versão em PDF de alta qualidade para ler no celular ou imprimir.',
     features: [],
-    ctaText: 'Comprar Ahora'
+    ctaText: 'Comprar Agora'
   };
 
   useEffect(() => {
@@ -87,10 +87,10 @@ export default function CheckoutModal({ isOpen, onClose, product }: CheckoutModa
         <div className="bg-gradient-to-r from-sky-pastel-500 to-sky-pastel-600 text-white px-5 py-4 flex items-center justify-between relative">
           <div>
             <span className="text-[9px] text-sky-pastel-100 font-bold uppercase tracking-widest block font-heading">
-              Iniciación Cristiana Segura
+              Iniciação Cristã Segura
             </span>
             <h4 className="text-sm font-bold font-heading text-white">
-              {step === 'success' ? '¡Tu compra ha sido confirmada! 🎉' : `Pago: ${finalProduct.name}`}
+              {step === 'success' ? 'Sua compra foi confirmada! 🎉' : `Pagamento: ${finalProduct.name}`}
             </h4>
           </div>
           <button 
@@ -106,15 +106,15 @@ export default function CheckoutModal({ isOpen, onClose, product }: CheckoutModa
         {step !== 'success' && (
           <div className="bg-sky-pastel-50/50 px-5 py-2.5 flex justify-between items-center text-[10px] text-stone-500 border-b border-sky-pastel-100">
             <span className={`font-semibold ${step === 'info' ? 'text-sky-pastel-750 font-bold text-sky-pastel-800' : 'text-stone-400'}`}>
-              1. Mis Datos
+              1. Meus Dados
             </span>
             <span className="text-stone-300">➔</span>
             <span className={`font-semibold ${step === 'payment' ? 'text-sky-pastel-750 font-bold text-sky-pastel-800' : 'text-stone-400'}`}>
-              2. Pago ($ {finalProduct.price.toFixed(2).replace('.', ',')})
+              2. Pagamento (R$ {finalProduct.price.toFixed(2).replace('.', ',')})
             </span>
             <span className="text-stone-300">➔</span>
             <span className="text-stone-400">
-              3. Recibir en E-mail
+              3. Receber no E-mail
             </span>
           </div>
         )}
@@ -127,18 +127,18 @@ export default function CheckoutModal({ isOpen, onClose, product }: CheckoutModa
             <form onSubmit={handleInfoSubmit} className="space-y-4">
               <div className="bg-sky-pastel-50 text-sky-pastel-800 text-[11px] p-3 rounded-2xl border border-sky-pastel-100 flex items-start gap-2.5">
                 <Heart className="w-4 h-4 text-pink-400 fill-pink-300 flex-shrink-0 mt-0.5 animate-pulse" />
-                <p className="font-sans">El librito en PDF de alta resolución se entregará a tu e-mail y WhatsApp inmediatamente después de la confirmación del pago.</p>
+                <p className="font-sans">O livrinho em PDF de alta resolução será entregue no seu e-mail e WhatsApp imediatamente após a confirmação do pagamento.</p>
               </div>
 
               <div>
                 <label className="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-1 font-heading" htmlFor="client-name">
-                  Nombre de la Mamá / Papa / Catequista
+                  Nome da Mãe / Pai / Catequista
                 </label>
                 <input
                   id="client-name"
                   type="text"
                   required
-                  placeholder="Tu nombre completo"
+                  placeholder="Seu nome completo"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full text-xs bg-stone-50 border border-sky-pastel-100 rounded-xl px-3.5 py-2.5 text-stone-800 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-sky-pastel-300"
@@ -147,13 +147,13 @@ export default function CheckoutModal({ isOpen, onClose, product }: CheckoutModa
 
               <div>
                 <label className="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-1 font-heading" htmlFor="client-email">
-                  Tu E-mail Principal (Muy Importante)
+                  Seu E-mail Principal (Muito Importante)
                 </label>
                 <input
                   id="client-email"
                   type="email"
                   required
-                  placeholder="EJ: maria@gmail.com"
+                  placeholder="EX: maria@gmail.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="w-full text-xs bg-stone-50 border border-sky-pastel-100 rounded-xl px-3.5 py-2.5 text-stone-800 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-sky-pastel-300"
@@ -162,12 +162,12 @@ export default function CheckoutModal({ isOpen, onClose, product }: CheckoutModa
 
               <div>
                 <label className="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-1 font-heading" htmlFor="client-phone">
-                  WhatsApp (Para soporte)
+                  WhatsApp (Para suporte e entrega)
                 </label>
                 <input
                   id="client-phone"
                   type="tel"
-                  placeholder="Ej: +52 55 1234 5678"
+                  placeholder="Ex: (11) 99999-9999"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   className="w-full text-xs bg-stone-50 border border-sky-pastel-100 rounded-xl px-3.5 py-2.5 text-stone-800 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-sky-pastel-300"
@@ -179,12 +179,12 @@ export default function CheckoutModal({ isOpen, onClose, product }: CheckoutModa
                   type="submit"
                   className="w-full bg-gradient-to-r from-sky-pastel-500 to-sky-pastel-600 text-white font-bold text-xs py-3 px-4 rounded-xl shadow-xs transition hover:from-sky-pastel-650 active:scale-98 flex items-center justify-center gap-1 font-heading uppercase"
                 >
-                  Ir al Pago ➔
+                  Ir para o Pagamento ➔
                 </button>
               </div>
 
               <p className="text-[9.5px] text-center text-stone-400">
-                🔒 Tus datos están 100% seguros bajo nuestra política de privacidad.
+                🔒 Seus dados estão 100% seguros sob nossa política de privacidade.
               </p>
             </form>
           )}
@@ -200,7 +200,7 @@ export default function CheckoutModal({ isOpen, onClose, product }: CheckoutModa
                   className={`py-2 text-[11px] font-bold rounded-lg flex items-center justify-center gap-1.5 transition ${paymentMethod === 'pix' ? 'bg-white text-emerald-600 shadow-2xs' : 'text-stone-500 hover:text-stone-800'}`}
                 >
                   <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
-                  Pagar con QR / Transferencia
+                  Pagar via PIX
                 </button>
                 <button
                   type="button"
@@ -208,16 +208,16 @@ export default function CheckoutModal({ isOpen, onClose, product }: CheckoutModa
                   className={`py-2 text-[11px] font-bold rounded-lg flex items-center justify-center gap-1.5 transition ${paymentMethod === 'card' ? 'bg-white text-sky-pastel-600 shadow-2xs' : 'text-stone-500 hover:text-stone-800'}`}
                 >
                   <CreditCard className="w-3.5 h-3.5" />
-                  Tarjeta de Crédito
+                  Cartão de Crédito
                 </button>
               </div>
 
-              {/* QR / Transfer Payment Section */}
+              {/* QR / PIX Payment Section */}
               {paymentMethod === 'pix' && (
                 <div className="space-y-3">
                   <div className="bg-sky-pastel-50/50 rounded-2xl p-4 border border-sky-pastel-100 flex flex-col items-center text-center">
                     <span className="text-[10px] text-emerald-600 font-bold uppercase tracking-wider bg-white py-0.5 px-2 rounded-full border border-emerald-100">
-                      Código de Pago Generado
+                      Código PIX Copia e Cola Gerado
                     </span>
 
                     {/* QR Code Placeholder with pretty layout */}
@@ -237,12 +237,12 @@ export default function CheckoutModal({ isOpen, onClose, product }: CheckoutModa
                         <div className="w-5 h-5 bg-sky-pastel-900 rounded"></div>
                       </div>
                       <div className="absolute inset-0 m-auto w-8 h-8 bg-white border-2 border-emerald-500 rounded-full flex items-center justify-center shadow-2xs">
-                        <span className="text-[9px] font-bold text-emerald-600">PAY</span>
+                        <span className="text-[9px] font-bold text-emerald-600">PIX</span>
                       </div>
                     </div>
 
                     <p className="text-[10.5px] text-stone-500 max-w-xs leading-snug">
-                      Escanea el código QR con la app de tu banco o copia la clave de pago proporcionada.
+                      Escaneie o QR Code com o aplicativo do seu banco ou copie a chave PIX abaixo.
                     </p>
 
                     <div className="w-full mt-2">
@@ -253,11 +253,11 @@ export default function CheckoutModal({ isOpen, onClose, product }: CheckoutModa
                       >
                         {copiedPix ? (
                           <>
-                            <Check className="w-4 h-4 text-emerald-400" /> ¡Código Copiado!
+                            <Check className="w-4 h-4 text-emerald-400" /> Código Copiado!
                           </>
                         ) : (
                           <>
-                            <Copy className="w-4 h-4 text-sky-pastel-300" /> Copiar Código de Pago
+                            <Copy className="w-4 h-4 text-sky-pastel-300" /> Copiar Código PIX
                           </>
                         )}
                       </button>
@@ -265,13 +265,13 @@ export default function CheckoutModal({ isOpen, onClose, product }: CheckoutModa
 
                     {/* Countdown */}
                     <p className="text-[9.5px] text-gray-400 mt-1.5 font-mono">
-                      El código expira en: <span className="text-pink-500 font-bold">{formatTime(pixCountdown)}</span>
+                      O código expira em: <span className="text-pink-500 font-bold">{formatTime(pixCountdown)}</span>
                     </p>
                   </div>
 
                   <div className="bg-sky-pastel-100 p-3 rounded-xl text-center">
                     <p className="text-[10.5px] text-sky-pastel-900 font-semibold mb-2">
-                      ¿Ya realizaste el pago? Haz clic en el botón para obtener el PDF:
+                      Já realizou o pagamento? Clique no botão para liberar o PDF:
                     </p>
                     <button
                       type="button"
@@ -282,7 +282,7 @@ export default function CheckoutModal({ isOpen, onClose, product }: CheckoutModa
                       {isProcessing ? (
                         <span className="inline-block w-4 h-4 rounded-full border-2 border-white border-t-transparent animate-spin"></span>
                       ) : (
-                        'Confirmar Pago Simulado y Descargar ✔'
+                        'Confirmar Pagamento Simulado e Baixar ✔'
                       )}
                     </button>
                   </div>
@@ -295,7 +295,7 @@ export default function CheckoutModal({ isOpen, onClose, product }: CheckoutModa
                   <div className="space-y-2">
                     <div>
                       <label className="block text-[9.5px] font-bold text-stone-500 uppercase tracking-wider mb-0.5">
-                        Número de Tarjeta de Crédito
+                        Número do Cartão de Crédito
                       </label>
                       <input
                         type="text"
@@ -309,11 +309,11 @@ export default function CheckoutModal({ isOpen, onClose, product }: CheckoutModa
 
                     <div>
                       <label className="block text-[9.5px] font-bold text-stone-500 uppercase tracking-wider mb-0.5">
-                        Nombre Impreso en la Tarjeta
+                        Nome Impresso no Cartão
                       </label>
                       <input
                         type="text"
-                        placeholder="EJ: MARIA S NUNES"
+                        placeholder="EX: MARIA S NUNES"
                         value={cardData.name}
                         onChange={(e) => setCardData({ ...cardData, name: e.target.value.toUpperCase() })}
                         className="w-full text-xs bg-stone-50 border border-stone-300 rounded-lg px-3 py-2 text-stone-800 placeholder-stone-400 focus:outline-none focus:ring-1 focus:ring-sky-pastel-400"
@@ -323,7 +323,7 @@ export default function CheckoutModal({ isOpen, onClose, product }: CheckoutModa
                     <div className="grid grid-cols-2 gap-2">
                       <div>
                         <label className="block text-[9.5px] font-bold text-stone-500 uppercase tracking-wider mb-0.5">
-                          Vencimiento (MM/AA)
+                          Validade (MM/AA)
                         </label>
                         <input
                           type="text"
@@ -336,7 +336,7 @@ export default function CheckoutModal({ isOpen, onClose, product }: CheckoutModa
                       </div>
                       <div>
                         <label className="block text-[9.5px] font-bold text-stone-500 uppercase tracking-wider mb-0.5">
-                          Código de Seguridad (CVV)
+                          Código de Segurança (CVV)
                         </label>
                         <input
                           type="password"
@@ -359,7 +359,7 @@ export default function CheckoutModal({ isOpen, onClose, product }: CheckoutModa
                     {isProcessing ? (
                       <span className="inline-block w-4 h-4 rounded-full border-2 border-white border-t-transparent animate-spin"></span>
                     ) : (
-                      `Pagar $ ${finalProduct.price.toFixed(2).replace('.', ',')} Simulado`
+                      `Pagar R$ ${finalProduct.price.toFixed(2).replace('.', ',')} Simulado`
                     )}
                   </button>
                 </div>
@@ -368,7 +368,7 @@ export default function CheckoutModal({ isOpen, onClose, product }: CheckoutModa
               {/* Developer notice on hooking external checkouts */}
               <div className="bg-sky-pastel-50 p-2.5 rounded-xl border border-sky-pastel-200">
                 <p className="text-[10px] text-sky-pastel-800 leading-normal">
-                  💡 <strong>Nota del Editor:</strong> Para integrar tu pasarela oficial (como Hotmart, Stripe, Mercado Pago, etc.), simplemente conecta el enlace directo a los botones de tu página de ventas.
+                  💡 <strong>Nota do Editor:</strong> Para integrar seu checkout oficial (como Hotmart, Mercado Pago, etc.), conecte os links diretamente nos botões da página de vendas.
                 </p>
               </div>
             </div>
@@ -382,16 +382,16 @@ export default function CheckoutModal({ isOpen, onClose, product }: CheckoutModa
               </div>
 
               <h5 className="text-sm font-bold text-sky-pastel-900 font-heading">
-                ¡El Librito fue enviado a tu E-mail!
+                O Livrinho foi enviado para o seu E-mail!
               </h5>
 
               <p className="text-xs text-stone-600 leading-relaxed max-w-xs mx-auto">
-                ¡Muchas felicidades, <strong>{formData.name || 'Mamá / Catequista'}</strong>! El pago de <strong>$ {finalProduct.price.toFixed(2).replace('.', ',')}</strong> fue recibido con éxito.
+                Parabéns, <strong>{formData.name || 'Mãe / Catequista'}</strong>! O pagamento de <strong>R$ {finalProduct.price.toFixed(2).replace('.', ',')}</strong> foi recebido com sucesso.
               </p>
 
               <div className="bg-sky-pastel-50 rounded-2xl p-4 border border-sky-pastel-200 space-y-3">
                 <p className="text-[11.5px] text-sky-pastel-900 font-medium font-sans">
-                  ⭐ Tu librito oficial en formato PDF y todos los bonos contratados ya han sido integrados con seguridad y enviados a: <strong>{formData.email}</strong>.
+                  ⭐ Seu livrinho oficial em formato PDF e todos os bônus contratados já foram integrados com segurança e enviados para: <strong>{formData.email}</strong>.
                 </p>
 
                 <div className="pt-1.5">
@@ -401,17 +401,17 @@ export default function CheckoutModal({ isOpen, onClose, product }: CheckoutModa
                     rel="noreferrer"
                     className="w-full bg-sky-pastel-500 hover:bg-sky-pastel-600 text-white font-bold text-xs py-2.5 px-4 rounded-xl flex items-center justify-center gap-1 transition shadow-xs"
                   >
-                    <Download className="w-4 h-4" /> Descargar PDF Muestra Ahora
+                    <Download className="w-4 h-4" /> Baixar PDF de Amostra Agora
                   </a>
                 </div>
               </div>
 
               <div className="bg-pink-50 text-pink-900 border border-pink-100 rounded-2xl p-3 text-left space-y-1">
                 <h6 className="text-[10.5px] font-bold flex items-center gap-1 text-pink-700 font-heading">
-                  <Smile className="w-3.5 h-3.5" /> ¿Necesitas Soporte?
+                  <Smile className="w-3.5 h-3.5" /> Precisa de Suporte?
                 </h6>
                 <p className="text-[10px] text-stone-600 leading-relaxed">
-                  Si tienes alguna duda sobre la impresión o quieres hablar con nuestro Equipo Misión Semilla de Fe, ponte en contacto vía WhatsApp. ¡Con gusto te ayudaremos!
+                  Se você tiver qualquer dúvida sobre a impressão ou quiser falar com nossa equipe, entre em contato via WhatsApp. Teremos alegria em ajudar!
                 </p>
               </div>
 
@@ -424,7 +424,7 @@ export default function CheckoutModal({ isOpen, onClose, product }: CheckoutModa
                   }}
                   className="text-stone-400 hover:text-stone-600 text-xs underline"
                 >
-                  Cerrar ventana
+                  Fechar janela
                 </button>
               </div>
             </div>
@@ -435,7 +435,7 @@ export default function CheckoutModal({ isOpen, onClose, product }: CheckoutModa
         {/* Footer Guarantee Seal */}
         <div className="bg-stone-50 px-5 py-3 border-t border-stone-200 flex justify-center items-center gap-1.5 text-stone-500 text-[10px]">
           <ShieldCheck className="w-4 h-4 text-sky-pastel-500" />
-          <span>Garantía de Felicidad Infantil de 7 Días • Ambiente Protegido</span>
+          <span>Garantia de Felicidade de 7 Dias • Ambiente 100% Protegido</span>
         </div>
 
       </div>
