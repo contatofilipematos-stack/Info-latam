@@ -40,7 +40,7 @@ const productsList: Product[] = [
       'Não inclui bônus'
     ],
     ctaText: 'Quero o plano básico',
-    checkoutUrl: 'https://pay.wiapy.com/ExTcnROdnW9'
+    checkoutUrl: 'https://pay.wiapy.com/RmjA5Y0e0ZjP'
   },
   {
     id: 'completo',
@@ -63,7 +63,7 @@ const productsList: Product[] = [
       'Envio Imediato'
     ],
     ctaText: 'Quero o material completo',
-    checkoutUrl: 'https://pay.hotmart.com/T106617000C?checkoutMode=10'
+    checkoutUrl: 'https://pay.wiapy.com/BmvU5l178Jjt'
   }
 ];
 
@@ -529,6 +529,13 @@ export default function App() {
     }
   };
 
+  const scrollToBonus = () => {
+    const section = document.getElementById('sessao-bonus');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const handleCTAClick = () => {
     scrollToPricing();
   };
@@ -601,12 +608,12 @@ export default function App() {
 
             {/* SECTION MATCHED CTA */}
             <div className="mt-10 px-4">
-              <SectionCTA onCTAClick={scrollToPricing} />
+              <SectionCTA onCTAClick={scrollToBonus} />
             </div>
           </section>
 
           {/* SESSÃO BONÛS (Sweet Bonuses Package for purchasers) */}
-          <section className="px-5 py-16 bg-sky-pastel-50/50 border-t border-b border-sky-pastel-100/50">
+          <section id="sessao-bonus" className="px-5 py-16 bg-sky-pastel-50/50 border-t border-b border-sky-pastel-100/50">
             <div className="text-center max-w-2xl mx-auto mb-12 animate-[fadeIn_0.5s_ease-out]">
               <div className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-pink-50 text-pink-600 text-[11px] font-bold rounded-full border border-pink-100 uppercase tracking-widest font-heading shadow-3xs mb-4">
                 <Gift className="w-4 h-4 text-pink-500 animate-pulse" /> BÔNUS EXCLUSIVOS
@@ -1026,9 +1033,9 @@ export default function App() {
               description: 'Aproveite esta oportunidade única para levar o material completo com desconto especial.',
               features: [],
               ctaText: 'Quero o Material Completo',
-              checkoutUrl: 'https://pay.hotmart.com/T106617000C?checkoutMode=10'
+              checkoutUrl: 'https://pay.wiapy.com/AVlLBRc-cmpo'
             };
-            executeCheckoutRedirect('https://pay.hotmart.com/T106617000C?checkoutMode=10', upsellProduct);
+            executeCheckoutRedirect('https://pay.wiapy.com/AVlLBRc-cmpo', upsellProduct);
           }}
           onDecline={() => {
             setShowUpsellPopup(false);
@@ -1042,9 +1049,9 @@ export default function App() {
               description: 'Acesso vitalício aos arquivos essenciais.',
               features: [],
               ctaText: 'Quero o plano básico',
-              checkoutUrl: 'https://pay.wiapy.com/ExTcnROdnW9'
+              checkoutUrl: 'https://pay.wiapy.com/RmjA5Y0e0ZjP'
             };
-            executeCheckoutRedirect('https://pay.wiapy.com/ExTcnROdnW9', basicoProduct);
+            executeCheckoutRedirect('https://pay.wiapy.com/RmjA5Y0e0ZjP', basicoProduct);
           }}
         />
       )}
