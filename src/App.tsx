@@ -655,13 +655,11 @@ export default function App() {
 
             {/* Core Display Headline */}
             <h1 id="main-headline" className="font-black font-heading text-stone-950 max-w-sm mx-auto my-4 text-center uppercase">
-              <span className="block text-stone-900 text-[31px] leading-[30.5px] tracking-wide">
-                LEMBRANCINHAS
+              <span className="block text-stone-900 text-[27px] sm:text-[31px] leading-[1.15] tracking-tight">
+                +200 LEMBRANCINHAS <br />
+                PARA SETEMBRO AMARELO
               </span>
-              <span className="block text-yellow-400 text-[30px] sm:text-[34px] tracking-tight leading-tight my-1">
-                SETEMBRO AMARELO
-              </span>
-              <span className="block text-stone-900 text-[24px] leading-[25.5px] tracking-wide">
+              <span className="block text-yellow-400 text-[27px] sm:text-[31px] leading-tight tracking-tight mt-1.5">
                 PRONTAS PARA IMPRIMIR
               </span>
             </h1>

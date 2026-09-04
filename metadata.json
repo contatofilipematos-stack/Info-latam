@@ -1,6 +1,6 @@
 {
-  "name": "Livrinho de Orações e Arte Sacra",
-  "description": "Página de vendas de alta conversão para o livrinho de orações católicas infantis e arquivos para catequese e impressão.",
+  "name": "+200 Lembrancinhas Setembro Amarelo",
+  "description": "+200 lembrancinhas para Setembro Amarelo prontas para imprimir.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
