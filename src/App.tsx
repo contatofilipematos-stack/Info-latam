@@ -177,6 +177,21 @@ export default function App() {
 
   const hasFiredViewContent = useRef(false);
 
+  // Preservação agressiva de todos os parâmetros de tráfego (UTMs, SRC, SCK, SubIDs, IDs de Clique)
+  useEffect(() => {
+    try {
+      const currentUrlParams = new URLSearchParams(window.location.search);
+      currentUrlParams.forEach((val, key) => {
+        if (val && val !== 'null' && val !== 'undefined' && val.trim() !== '') {
+          try {
+            localStorage.setItem(`saved_utm_${key}`, val);
+            sessionStorage.setItem(`saved_utm_${key}`, val);
+          } catch (e) {}
+        }
+      });
+    } catch (e) {}
+  }, []);
+
   // Trigger Meta Pixel ViewContent event for main offer (completo - R$ 27)
   useEffect(() => {
     if (!hasFiredViewContent.current) {
@@ -184,12 +199,14 @@ export default function App() {
       if (typeof (window as any).fbq === 'function') {
         try {
           (window as any).fbq('track', 'ViewContent', {
+            content_name: 'Kit Completo Lembrancinhas Setembro Amarelo',
+            content_category: 'Lembrancinhas Setembro Amarelo',
             content_ids: ['completo'],
             content_type: 'product',
             value: 27,
             currency: 'BRL'
           });
-          console.log("Meta Pixel ViewContent disparado com sucesso!");
+          console.log("✅ Meta Pixel ViewContent disparado com sucesso!");
         } catch (e) {
           console.error("Erro ao disparar Meta Pixel ViewContent:", e);
         }
@@ -247,73 +264,87 @@ export default function App() {
   }, []);
 
   const trackInitiateCheckoutEvent = (prod: Product) => {
-    // 1. Meta / Facebook Pixel
-    if (typeof (window as any).fbq === 'function') {
-      try {
-        (window as any).fbq('track', 'InitiateCheckout', {
-          content_name: prod.name,
-          value: prod.price,
-          currency: 'BRL',
-          content_type: 'product',
-          content_ids: [prod.id],
-        });
-        console.log("Meta Pixel InitiateCheckout disparado com sucesso!");
-      } catch (e) {
-        console.error("Erro ao disparar FB InitiateCheckout:", e);
-      }
-    }
+    try {
+      console.log("[TRACKING] Disparando InitiateCheckout (IC) para:", prod.name, "R$", prod.price);
 
-    // 2. Google Tag Manager / gtag
-    if (typeof (window as any).gtag === 'function') {
-      try {
-        (window as any).gtag('event', 'begin_checkout', {
-          currency: 'BRL',
-          value: prod.price,
-          items: [{
-            item_id: prod.id,
-            item_name: prod.name,
-            price: prod.price,
-            quantity: 1
-          }]
-        });
-        console.log("gtag begin_checkout disparado com sucesso!");
-      } catch (e) {
-        console.error("Erro ao disparar gtag begin_checkout:", e);
+      // 1. Meta / Facebook Pixel (Oficial com dados completos de e-commerce)
+      if (typeof (window as any).fbq === 'function') {
+        try {
+          (window as any).fbq('track', 'InitiateCheckout', {
+            content_name: prod.name,
+            content_category: 'Lembrancinhas Setembro Amarelo',
+            content_ids: [prod.id],
+            contents: [
+              {
+                id: prod.id,
+                quantity: 1,
+                item_price: prod.price
+              }
+            ],
+            value: prod.price,
+            currency: 'BRL',
+            num_items: 1
+          });
+          console.log("✅ Meta Pixel InitiateCheckout disparado com sucesso!");
+        } catch (e) {
+          console.error("Erro ao disparar FB InitiateCheckout:", e);
+        }
       }
-    }
 
-    // 3. TikTok Pixel
-    if (typeof (window as any).ttq === 'object' && typeof (window as any).ttq.track === 'function') {
-      try {
-        (window as any).ttq.track('InitiateCheckout', {
-          contents: [{
+      // 2. Google Tag Manager / gtag
+      if (typeof (window as any).gtag === 'function') {
+        try {
+          (window as any).gtag('event', 'begin_checkout', {
+            currency: 'BRL',
+            value: prod.price,
+            items: [{
+              item_id: prod.id,
+              item_name: prod.name,
+              price: prod.price,
+              quantity: 1
+            }]
+          });
+          console.log("✅ gtag begin_checkout disparado com sucesso!");
+        } catch (e) {
+          console.error("Erro ao disparar gtag begin_checkout:", e);
+        }
+      }
+
+      // 3. TikTok Pixel
+      if (typeof (window as any).ttq === 'object' && typeof (window as any).ttq.track === 'function') {
+        try {
+          (window as any).ttq.track('InitiateCheckout', {
+            contents: [{
+              content_id: prod.id,
+              content_name: prod.name,
+              price: prod.price,
+              quantity: 1
+            }],
+            value: prod.price,
+            currency: 'BRL'
+          });
+          console.log("✅ TikTok InitiateCheckout disparado!");
+        } catch (e) {}
+      }
+
+      // 4. Kwai Pixel
+      if (typeof (window as any).kwaiq === 'object' && typeof (window as any).kwaiq.track === 'function') {
+        try {
+          (window as any).kwaiq.track('contentView', {
             content_id: prod.id,
             content_name: prod.name,
-            price: prod.price,
-            quantity: 1
-          }],
-          value: prod.price,
-          currency: 'BRL'
-        });
-        console.log("TikTok InitiateCheckout disparado!");
-      } catch (e) {}
-    }
-
-    // 4. Kwai Pixel
-    if (typeof (window as any).kwaiq === 'object' && typeof (window as any).kwaiq.track === 'function') {
-      try {
-        (window as any).kwaiq.track('contentView', {
-          content_id: prod.id,
-          content_name: prod.name,
-          value: prod.price,
-          currency: 'BRL'
-        });
-        console.log("Kwai contentView disparado!");
-      } catch (e) {}
+            value: prod.price,
+            currency: 'BRL'
+          });
+          console.log("✅ Kwai contentView disparado!");
+        } catch (e) {}
+      }
+    } catch (err) {
+      console.error("Erro geral no tracking de InitiateCheckout:", err);
     }
   };
 
-  // Helper robusto para unificar dados do UTMfy e passar para o Checkout (Wiapy)
+  // Helper robusto e exaustivo para unificar dados do UTMfy, Meta e passar para o Checkout (Lowify)
   const buildUrlWithTracking = (baseUrl: string) => {
     try {
       const urlObj = new URL(baseUrl);
@@ -324,10 +355,43 @@ export default function App() {
       // Função auxiliar para remover prefixos especiais do UTMfy e padronizar as chaves para o Checkout
       const sanitizeKey = (key: string): string => {
         return key
+          .replace(/^saved_utm_/, '')
           .replace(/^__utmify_/, '')
           .replace(/^_utmify_/, '')
           .replace(/^utmify_/, '')
           .trim();
+      };
+
+      const setParamIfValid = (k: string, v: unknown) => {
+        if (v === undefined || v === null) return;
+        const strVal = String(v).trim();
+        if (
+          strVal === '' || 
+          strVal === 'undefined' || 
+          strVal === 'null' || 
+          strVal === '[object Object]'
+        ) {
+          return;
+        }
+        const cleanK = sanitizeKey(k);
+        if (!trackerParams[cleanK]) {
+          trackerParams[cleanK] = strVal;
+        }
+      };
+
+      const parseJsonIfPossible = (valStr: string) => {
+        if (!valStr || typeof valStr !== 'string') return;
+        const trimmed = valStr.trim();
+        if (trimmed.startsWith('{') && trimmed.endsWith('}')) {
+          try {
+            const parsed = JSON.parse(trimmed);
+            if (parsed && typeof parsed === 'object') {
+              Object.entries(parsed).forEach(([subK, subV]) => {
+                setParamIfValid(subK, subV);
+              });
+            }
+          } catch (e) {}
+        }
       };
 
       // Chaves conhecidas de alto valor para campanhas de anúncios (Meta, Google, TikTok, Kwai)
@@ -335,42 +399,38 @@ export default function App() {
         'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term',
         'src', 'sck', 'xcod', 'fbclid', 'gclid', 'ttclid', 'subid', 'subid2', 
         'subid3', 'subid4', 'subid5', 'click_id', 'ad_id', 'adset_id', 'campaign_id',
-        'kwai_id', 'ttclid'
+        'kwai_id'
       ];
 
       // 1. Coleta e mapeia todas as UTMs atualmente presentes na URL de entrada da página
       try {
         const currentParams = new URLSearchParams(window.location.search);
         currentParams.forEach((value, key) => {
-          if (value && value !== 'undefined' && value !== 'null' && value.trim() !== '') {
-            const clean = sanitizeKey(key);
-            trackerParams[clean] = value;
-          }
+          setParamIfValid(key, value);
         });
       } catch (e) {
         console.error("Erro ao ler URL params:", e);
       }
 
-      // 2. Varredura dinâmica de TODAS as chaves do LocalStorage
+      // 2. Varredura de parâmetros salvos no LocalStorage (incluindo JSONs do UTMify)
       try {
         for (let i = 0; i < localStorage.length; i++) {
           const rawKey = localStorage.key(i);
           if (rawKey) {
-            const clean = sanitizeKey(rawKey);
-            const isTrackingKey = trackingKeywords.includes(clean) || 
-                                 rawKey.includes('utm') || 
-                                 rawKey.includes('_utmify_') ||
-                                 rawKey.includes('subid') ||
-                                 rawKey.includes('xcod') ||
-                                 rawKey.includes('fbclid') ||
-                                 rawKey.includes('gclid');
-
-            if (isTrackingKey) {
-              const val = localStorage.getItem(rawKey);
-              if (val && val !== 'undefined' && val !== 'null' && val.trim() !== '') {
-                if (!trackerParams[clean]) {
-                  trackerParams[clean] = val;
-                }
+            const val = localStorage.getItem(rawKey);
+            if (val) {
+              parseJsonIfPossible(val);
+              const clean = sanitizeKey(rawKey);
+              const isTrackingKey = trackingKeywords.includes(clean) || 
+                                   rawKey.includes('utm') || 
+                                   rawKey.includes('saved_utm_') ||
+                                   rawKey.includes('_utmify_') ||
+                                   rawKey.includes('subid') ||
+                                   rawKey.includes('xcod') ||
+                                   rawKey.includes('fbclid') ||
+                                   rawKey.includes('gclid');
+              if (isTrackingKey) {
+                setParamIfValid(clean, val);
               }
             }
           }
@@ -379,24 +439,23 @@ export default function App() {
         console.error("Erro ao ler LocalStorage dinamicamente:", e);
       }
 
-      // 3. Varredura dinâmica de TODAS as chaves do SessionStorage (Garante redundância em abas mantidas)
+      // 3. Varredura de SessionStorage (Garante redundância em abas mantidas)
       try {
         for (let i = 0; i < sessionStorage.length; i++) {
           const rawKey = sessionStorage.key(i);
           if (rawKey) {
-            const clean = sanitizeKey(rawKey);
-            const isTrackingKey = trackingKeywords.includes(clean) || 
-                                 rawKey.includes('utm') || 
-                                 rawKey.includes('_utmify_') ||
-                                 rawKey.includes('subid') ||
-                                 rawKey.includes('xcod');
-
-            if (isTrackingKey) {
-              const val = sessionStorage.getItem(rawKey);
-              if (val && val !== 'undefined' && val !== 'null' && val.trim() !== '') {
-                if (!trackerParams[clean]) {
-                  trackerParams[clean] = val;
-                }
+            const val = sessionStorage.getItem(rawKey);
+            if (val) {
+              parseJsonIfPossible(val);
+              const clean = sanitizeKey(rawKey);
+              const isTrackingKey = trackingKeywords.includes(clean) || 
+                                   rawKey.includes('utm') || 
+                                   rawKey.includes('saved_utm_') ||
+                                   rawKey.includes('_utmify_') ||
+                                   rawKey.includes('subid') ||
+                                   rawKey.includes('xcod');
+              if (isTrackingKey) {
+                setParamIfValid(clean, val);
               }
             }
           }
@@ -412,20 +471,17 @@ export default function App() {
           const parts = cookie.split('=');
           const rawKey = parts[0].trim();
           const val = parts.slice(1).join('=').trim();
-          
-          if (rawKey && val && val !== 'undefined' && val !== 'null' && val.trim() !== '') {
+          if (rawKey && val) {
+            const decodedVal = decodeURIComponent(val);
+            parseJsonIfPossible(decodedVal);
             const clean = sanitizeKey(rawKey);
             const isTrackingKey = trackingKeywords.includes(clean) || 
                                  rawKey.includes('utm') || 
                                  rawKey.includes('_utmify_') ||
                                  rawKey.includes('subid') ||
                                  rawKey.includes('xcod');
-
             if (isTrackingKey) {
-              const decodedVal = decodeURIComponent(val);
-              if (decodedVal && !trackerParams[clean] && decodedVal.trim() !== '') {
-                trackerParams[clean] = decodedVal;
-              }
+              setParamIfValid(clean, decodedVal);
             }
           }
         });
@@ -433,12 +489,45 @@ export default function App() {
         console.error("Erro ao ler Cookies dinamicamente:", e);
       }
 
-      // 5. Consolida todas as chaves limpas de rastreamento na URL de Checkout final
+      // 5. Integração com links pré-decorados pelo UTMfy no DOM
+      try {
+        const utmifyAnchors = document.querySelectorAll('a[href*="lowify.com.br"]');
+        utmifyAnchors.forEach(anchor => {
+          const href = anchor.getAttribute('href');
+          if (href && href.includes('?')) {
+            try {
+              const u = new URL(href, window.location.origin);
+              u.searchParams.forEach((v, k) => {
+                setParamIfValid(k, v);
+              });
+            } catch (err) {}
+          }
+        });
+      } catch (e) {}
+
+      // 6. Mapeamento inteligente de aliases essenciais para o checkout Lowify/Kiwify
+      // Garante que mesmo que o anúncio passe apenas utm_source, o checkout receba src, sck e subid
+      if (trackerParams['utm_source'] && !trackerParams['src']) {
+        trackerParams['src'] = trackerParams['utm_source'];
+      }
+      if (trackerParams['src'] && !trackerParams['utm_source']) {
+        trackerParams['utm_source'] = trackerParams['src'];
+      }
+      if (trackerParams['utm_campaign'] && !trackerParams['sck']) {
+        trackerParams['sck'] = trackerParams['utm_campaign'];
+      } else if (trackerParams['utm_medium'] && !trackerParams['sck']) {
+        trackerParams['sck'] = trackerParams['utm_medium'];
+      }
+      if (trackerParams['utm_content'] && !trackerParams['subid']) {
+        trackerParams['subid'] = trackerParams['utm_content'];
+      }
+
+      // 7. Consolida todas as chaves limpas de rastreamento na URL de Checkout final
       Object.keys(trackerParams).forEach(key => {
         urlObj.searchParams.set(key, trackerParams[key]);
       });
 
-      // 6. Garante a preservação de parâmetros nativos que já acompanhavam a URL original do Checkout (Wiapy)
+      // 8. Garante a preservação de parâmetros nativos que já acompanhavam a URL original do Checkout
       const originalCheckoutUrl = new URL(baseUrl);
       originalCheckoutUrl.searchParams.forEach((value, key) => {
         if (!urlObj.searchParams.has(key)) {
@@ -446,7 +535,7 @@ export default function App() {
         }
       });
 
-      console.log("Rastreamento UTMfy/Meta consolidado para o Checkout (Wiapy):", urlObj.toString());
+      console.log("✅ Rastreamento UTMfy/Meta consolidado para o Checkout Lowify:", urlObj.toString());
       return urlObj.toString();
     } catch (e) {
       console.error("Erro geral ao processar rastreamento de URLs:", e);
@@ -463,34 +552,41 @@ export default function App() {
     if (prod) {
       trackInitiateCheckoutEvent(prod);
     }
-    const url = buildUrlWithTracking(checkoutUrl);
+    const finalUrl = buildUrlWithTracking(checkoutUrl);
+    console.log("[CHECKOUT REDIRECT] Redirecionando com parâmetros:", finalUrl);
+
+    // Pequeno intervalo de 350ms para garantir envio seguro dos dados antes de navegar
     setTimeout(() => {
       try {
         const isIframe = window.self !== window.top;
         if (isIframe) {
-          const opened = window.open(url, '_blank');
+          const opened = window.open(finalUrl, '_blank');
           if (!opened) {
-            window.top!.location.href = url;
+            window.top!.location.href = finalUrl;
           }
         } else {
-          window.location.href = url;
+          window.location.href = finalUrl;
         }
       } catch (err) {
         try {
-          window.location.href = url;
+          window.location.href = finalUrl;
         } catch (e) {
-          window.open(url, '_blank');
+          window.open(finalUrl, '_blank');
         }
       }
     }, 350);
   };
 
   const triggerCheckout = (prod: Product) => {
+    // 1. SEMPRE DISPARA InitiateCheckout (IC) IMEDIATAMENTE NO PRIMEIRO CLIQUE
+    // Garante que o evento seja gravado no Meta Pixel e UTMfy mesmo se o visitante fechar ou não concluir a compra
+    trackInitiateCheckoutEvent(prod);
+
     if (prod.id === 'basico') {
       setShowUpsellPopup(true);
       return;
     }
-    trackInitiateCheckoutEvent(prod);
+    
     if (prod.checkoutUrl) {
       executeCheckoutRedirect(prod.checkoutUrl, prod);
     } else {
@@ -851,12 +947,16 @@ export default function App() {
 
                     {/* Checkout launch trigger */}
                     <div>
-                      <button
-                        onClick={() => triggerCheckout(product)}
-                        className={`w-full font-heading font-black text-sm sm:text-base md:text-lg py-4 rounded-full transition-all duration-150 active:scale-97 cursor-pointer flex items-center justify-center gap-2 uppercase tracking-widest whitespace-nowrap ${isPremium ? 'shadow-[0_12px_28px_rgba(0,168,90,0.22)] bg-gradient-to-r from-[#00a85a] to-[#12a364] animate-pulse-premium-button' : 'shadow-[0_12px_28px_rgba(0,168,90,0.22)] bg-gradient-to-r from-[#00a85a] to-[#12a364]'} text-white`}
+                      <a
+                        href={buildUrlWithTracking(product.checkoutUrl)}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          triggerCheckout(product);
+                        }}
+                        className={`w-full font-heading font-black text-sm sm:text-base md:text-lg py-4 rounded-full transition-all duration-150 active:scale-97 cursor-pointer flex items-center justify-center gap-2 uppercase tracking-widest whitespace-nowrap ${isPremium ? 'shadow-[0_12px_28px_rgba(0,168,90,0.22)] bg-gradient-to-r from-[#00a85a] to-[#12a364] animate-pulse-premium-button' : 'shadow-[0_12px_28px_rgba(0,168,90,0.22)] bg-gradient-to-r from-[#00a85a] to-[#12a364]'} text-white text-center`}
                       >
                         {product.ctaText}
-                      </button>
+                      </a>
 
                       <div className="flex items-center justify-center mt-3 text-stone-600 font-medium text-xs sm:text-sm text-center">
                         <span>Receba o material no seu <strong>WhatsApp</strong> e <strong>E-mail</strong></span>
