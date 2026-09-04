@@ -558,9 +558,16 @@ export default function App() {
             <div className="absolute top-10 -right-16 w-40 h-20 bg-white/60 rounded-full blur-md opacity-80"></div>
 
             {/* Core Display Headline */}
-            <h1 id="main-headline" className="text-[29px] font-black font-heading text-sky-pastel-950 leading-[1.25] tracking-tight max-w-md mx-auto my-5 text-center px-1">
-              Lembrancinhas Setembro Amarelo <br />
-              <span className="text-yellow-500 inline-block">Prontas Para Imprimir</span>
+            <h1 id="main-headline" className="font-black font-heading text-stone-950 max-w-sm mx-auto my-4 text-center uppercase">
+              <span className="block text-stone-900 text-[31px] leading-[30.5px] tracking-wide">
+                LEMBRANCINHAS
+              </span>
+              <span className="block text-yellow-400 text-[30px] sm:text-[34px] tracking-tight leading-tight my-1">
+                SETEMBRO AMARELO
+              </span>
+              <span className="block text-stone-900 text-[24px] leading-[25.5px] tracking-wide">
+                PRONTAS PARA IMPRIMIR
+              </span>
             </h1>
 
             {/* Soft, convincing subheadline */}
