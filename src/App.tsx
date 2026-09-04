@@ -558,7 +558,7 @@ export default function App() {
             <div className="absolute top-10 -right-16 w-40 h-20 bg-white/60 rounded-full blur-md opacity-80"></div>
 
             {/* Core Display Headline */}
-            <h1 id="main-headline" className="text-[26px] sm:text-[30px] font-black font-heading text-sky-pastel-950 leading-[1.25] tracking-tight max-w-md mx-auto my-5 text-center px-1">
+            <h1 id="main-headline" className="text-[29px] font-black font-heading text-sky-pastel-950 leading-[1.25] tracking-tight max-w-md mx-auto my-5 text-center px-1">
               Lembrancinhas Setembro Amarelo <br />
               <span className="text-yellow-500 inline-block">Prontas Para Imprimir</span>
             </h1>
