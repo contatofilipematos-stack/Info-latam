@@ -17,8 +17,8 @@
   --color-sky-pastel-800: #075985;
   --color-sky-pastel-900: #0c4a6e;
   
-  --color-feminine-pink: #fdf2f8;
-  --color-feminine-accent: #f472b6;
+  --color-brand-yellow: #fefce8;
+  --color-brand-accent: #facc15;
   --color-angelic-white: #ffffff;
 }
 
@@ -74,6 +74,19 @@
 
 .animate-infinite-scroll {
   animation: infiniteScroll 35s linear infinite;
+}
+
+@keyframes infiniteScrollReverse {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-infinite-scroll-reverse {
+  animation: infiniteScrollReverse 30s linear infinite;
 }
 
 /* Image protection & anti-download rules */

@@ -126,7 +126,7 @@ export default function CheckoutModal({ isOpen, onClose, product }: CheckoutModa
           {step === 'info' && (
             <form onSubmit={handleInfoSubmit} className="space-y-4">
               <div className="bg-sky-pastel-50 text-sky-pastel-800 text-[11px] p-3 rounded-2xl border border-sky-pastel-100 flex items-start gap-2.5">
-                <Heart className="w-4 h-4 text-pink-400 fill-pink-300 flex-shrink-0 mt-0.5 animate-pulse" />
+                <Heart className="w-4 h-4 text-yellow-500 fill-yellow-300 flex-shrink-0 mt-0.5 animate-pulse" />
                 <p className="font-sans">O livrinho em PDF de alta resolução será entregue no seu e-mail e WhatsApp imediatamente após a confirmação do pagamento.</p>
               </div>
 
@@ -265,7 +265,7 @@ export default function CheckoutModal({ isOpen, onClose, product }: CheckoutModa
 
                     {/* Countdown */}
                     <p className="text-[9.5px] text-gray-400 mt-1.5 font-mono">
-                      O código expira em: <span className="text-pink-500 font-bold">{formatTime(pixCountdown)}</span>
+                      O código expira em: <span className="text-yellow-600 font-bold">{formatTime(pixCountdown)}</span>
                     </p>
                   </div>
 
@@ -406,8 +406,8 @@ export default function CheckoutModal({ isOpen, onClose, product }: CheckoutModa
                 </div>
               </div>
 
-              <div className="bg-pink-50 text-pink-900 border border-pink-100 rounded-2xl p-3 text-left space-y-1">
-                <h6 className="text-[10.5px] font-bold flex items-center gap-1 text-pink-700 font-heading">
+              <div className="bg-yellow-50 text-yellow-900 border border-yellow-200 rounded-2xl p-3 text-left space-y-1">
+                <h6 className="text-[10.5px] font-bold flex items-center gap-1 text-yellow-700 font-heading">
                   <Smile className="w-3.5 h-3.5" /> Precisa de Suporte?
                 </h6>
                 <p className="text-[10px] text-stone-600 leading-relaxed">

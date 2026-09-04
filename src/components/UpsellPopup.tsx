@@ -9,23 +9,20 @@ interface UpsellPopupProps {
 
 export default function UpsellPopup({ onClose, onAccept, onDecline }: UpsellPopupProps) {
   const popupItems = [
-    { text: "+500 Arquivos STL Católicos", isBonus: false },
-    { text: "Uso comercial liberado e sem limite", isBonus: false },
-    { text: "Bônus 1: Guia de Produtos Católicos que Mais Vendem", isBonus: true },
-    { text: "Bônus 2: Tabela de Preços para Produtos 3D Católicos", isBonus: true },
-    { text: "Bônus 3: Guia de Configuração para Impressão", isBonus: true },
-    { text: "Bônus 4: Mockups para Divulgação", isBonus: true },
-    { text: "Bônus 5: Guia de Acabamento e Pintura", isBonus: true },
-    { text: "Bônus 6: Pack de Luminárias 3D", isBonus: true },
+    { text: "Kit Completo Lembrancinhas Setembro Amarelo (PDF)", isBonus: false },
+    { text: "Modelos Prontos para Imprimir e Recortar", isBonus: false },
+    { text: "Bônus 1: Tags e Cartõezinhos de Apoio", isBonus: true },
+    { text: "Bônus 2: Cartões para Colorir", isBonus: true },
+    { text: "Bônus 3: Kit de Embalagens Prontas", isBonus: true },
     { text: "Acesso Vitalício & Envio Imediato", isBonus: false },
   ];
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200 overflow-y-auto">
-      <div className="bg-white rounded-[1.5rem] sm:rounded-[2rem] p-3.5 sm:p-6 max-w-xs sm:max-w-md w-full relative shadow-2xl border-2 border-pink-100 animate-in zoom-in duration-200 overflow-hidden my-auto">
+      <div className="bg-white rounded-[1.5rem] sm:rounded-[2rem] p-3.5 sm:p-6 max-w-xs sm:max-w-md w-full relative shadow-2xl border-2 border-yellow-200 animate-in zoom-in duration-200 overflow-hidden my-auto">
         
         {/* Background decorative accent */}
-        <div className="absolute -top-12 -right-12 w-32 h-32 bg-pink-100/50 rounded-full blur-2xl pointer-events-none" />
+        <div className="absolute -top-12 -right-12 w-32 h-32 bg-yellow-100/60 rounded-full blur-2xl pointer-events-none" />
         <div className="absolute -bottom-12 -left-12 w-32 h-32 bg-amber-100/50 rounded-full blur-2xl pointer-events-none" />
 
         <button 
@@ -40,11 +37,11 @@ export default function UpsellPopup({ onClose, onAccept, onDecline }: UpsellPopu
           
           {/* Headline */}
           <h2 className="text-lg sm:text-2xl font-black font-heading text-stone-900 leading-tight mb-0.5 sm:mb-1">
-            Espere! Leve o <span className="block text-[#e5007d]">Material Completo</span>
+            Espere! Leve o <span className="block text-amber-600">Material Completo</span>
           </h2>
           
           <p className="text-stone-600 text-[10px] sm:text-xs font-medium mb-2 sm:mb-2.5 leading-tight">
-            Liberamos um desconto exclusivo para você levar todos os +500 arquivos STL e os 6 bônus inclusos por apenas:
+            Liberamos um desconto exclusivo para você levar o Kit Completo e todos os 3 bônus inclusos por apenas:
           </p>
 
           {/* Key included benefits list */}
@@ -52,7 +49,7 @@ export default function UpsellPopup({ onClose, onAccept, onDecline }: UpsellPopu
             {popupItems.map((item, index) => (
               <div key={index} className="flex items-start gap-1 sm:gap-1.5 text-stone-800 font-semibold leading-tight">
                 {item.isBonus ? (
-                  <Gift className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#e5007d] flex-shrink-0 mt-0.5" />
+                  <Gift className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-500 flex-shrink-0 mt-0.5" />
                 ) : (
                   <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#00a85a] flex-shrink-0 mt-0.5" />
                 )}
@@ -62,10 +59,10 @@ export default function UpsellPopup({ onClose, onAccept, onDecline }: UpsellPopu
           </div>
 
           {/* Price Box */}
-          <div className="bg-pink-50 rounded-lg sm:rounded-xl p-1.5 sm:p-2 border border-pink-200/80 mb-2 sm:mb-3">
+          <div className="bg-yellow-50 rounded-lg sm:rounded-xl p-1.5 sm:p-2 border border-yellow-200 mb-2 sm:mb-3">
             <div className="flex items-center justify-center gap-1.5 sm:gap-2">
               <span className="line-through text-stone-400 text-[11px] sm:text-sm font-bold">R$ 47,00</span>
-              <span className="text-2xl sm:text-4xl font-black font-heading text-[#e5007d]">
+              <span className="text-2xl sm:text-4xl font-black font-heading text-amber-600">
                 R$ 17,00
               </span>
             </div>

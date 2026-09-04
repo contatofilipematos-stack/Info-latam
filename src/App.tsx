@@ -19,51 +19,49 @@ const CUTE_PRAYING_KIDS_BLUE = "/src/assets/images/cute_praying_kids_blue_178171
 const KIDS_PRAYING_PATH = "/src/assets/images/kids_praying_watercolor_1781714046303.jpg";
 
 // New high-converting bonus booklets
-const BONUS_MISSA_PATH = "https://iili.io/CDZRlXp.md.webp";
-const BONUS_DEC_PATH = "https://iili.io/CDZRYmv.md.webp";
-const BONUS_NS_PATH = "https://iili.io/CDZRcIR.md.webp";
-const BONUS_APARECIDA_PATH = "https://iili.io/CDZR7kJ.md.webp";
+const BONUS_MISSA_PATH = "https://iili.io/nJxjWMv.md.png";
+const BONUS_NS_PATH = "https://iili.io/nJxS2Eu.md.png";
+const BONUS_APARECIDA_PATH = "https://iili.io/nJxQAxf.md.png";
 
 const productsList: Product[] = [
   {
     id: 'basico',
     name: 'PLANO BÁSICO',
     badge: 'ESSENCIAL',
-    imageUrl: 'https://iili.io/CUEAZSn.md.jpg',
+    imageUrl: 'https://iili.io/nJzKxJs.md.png',
     price: 10.00,
     originalPrice: 27.00,
-    description: 'Acesso vitalício aos arquivos essenciais.',
+    description: 'Acesso vitalício aos arquivos essenciais de lembrancinhas do Setembro Amarelo.',
     features: [
-      '+500 Arquivos STL Católicos',
+      'Kit Lembrancinhas Setembro Amarelo (PDF)',
+      'Modelos Prontos para Imprimir e Recortar',
       'Acesso Vitalício',
-      'Envio Imediato',
-      'Não inclui bônus'
+      'Envio Imediato no WhatsApp e E-mail',
+      'Não inclui os 3 bônus exclusivos'
     ],
     ctaText: 'Quero o plano básico',
-    checkoutUrl: 'https://pay.wiapy.com/RmjA5Y0e0ZjP'
+    checkoutUrl: 'https://pay.lowify.com.br/checkout?product_id=tqWy7x'
   },
   {
     id: 'completo',
-    name: 'PLANO COMPLETO + 6 BÔNUS',
+    name: 'PLANO COMPLETO + 3 BÔNUS',
     badge: 'Mais Escolhido',
-    imageUrl: 'https://iili.io/CbAjv8x.md.webp',
+    imageUrl: 'https://iili.io/nJzKxJs.md.png',
     price: 27.00,
     originalPrice: 67.00,
-    description: 'Pacote completo definitivo com arquivos STL e todos os 6 bônus exclusivos inclusos.',
+    description: 'Pacote completo definitivo com todas as lembrancinhas e os 3 bônus exclusivos inclusos.',
     features: [
-      '+500 Arquivos STL Católicos',
-      'Uso comercial liberado e sem limite',
-      'Bônus 1: Guia de Produtos Católicos que Mais Vendem',
-      'Bônus 2: Tabela de Preços para Produtos 3D Católicos',
-      'Bônus 3: Guia de Configuração para Impressão',
-      'Bônus 4: Mockups para Divulgação',
-      'Bônus 5: Guia de Acabamento e Pintura',
-      'Bônus 6: Pack de Luminárias 3D',
+      'Kit Completo Lembrancinhas Setembro Amarelo (PDF)',
+      'Todos os Modelos Prontos para Imprimir e Recortar',
+      'Uso liberado para escolas, empresas e igrejas',
+      'Bônus 1: Tags e Cartõezinhos de Apoio',
+      'Bônus 2: Cartões para Colorir',
+      'Bônus 3: Kit de Embalagens Prontas',
       'Acesso Vitalício',
-      'Envio Imediato'
+      'Envio Imediato no WhatsApp e E-mail'
     ],
     ctaText: 'Quero o material completo',
-    checkoutUrl: 'https://pay.wiapy.com/BmvU5l178Jjt'
+    checkoutUrl: 'https://pay.lowify.com.br/checkout?product_id=KC4xfX'
   }
 ];
 
@@ -104,21 +102,21 @@ function HeroCTALimitedOffer({ onCTAClick }: { onCTAClick: () => void }) {
   return (
     <div className="flex flex-col items-center w-full max-w-md mx-auto px-1 sm:px-0 mt-2">
       {/* Pill timer badge styled exact to design block */}
-      <div className="inline-flex items-center gap-2 px-6 py-2 bg-[#fff1f2] border border-[#fecdd3] rounded-full text-[#d11270] font-sans font-semibold text-[11px] sm:text-xs tracking-wider uppercase mb-4 shadow-3xs">
-        <Clock className="w-4 h-4 text-[#e11d48] animate-pulse" />
+      <div className="inline-flex items-center gap-2 px-6 py-2 bg-amber-50 border border-amber-200 rounded-full text-amber-800 font-sans font-semibold text-[11px] sm:text-xs tracking-wider uppercase mb-4 shadow-3xs">
+        <Clock className="w-4 h-4 text-amber-600 animate-pulse" />
         <span>Oferta por tempo limitado: <strong className="font-extrabold">{formatTime(timeLeft)}</strong></span>
       </div>
 
-      {/* Hero big pink cta button exact to styling */}
+      {/* Hero big yellow cta button exact to styling */}
       <button
         onClick={() => onCTAClick()}
-        className="w-full bg-[#e5007d] hover:bg-[#c40068] active:scale-97 text-white font-heading rounded-[2rem] sm:rounded-[2.5rem] py-4 px-2 xs:px-4 shadow-[0_12px_28px_rgba(229,0,125,0.28)] hover:shadow-[0_14px_32px_rgba(229,0,125,0.35)] transition-all duration-200 cursor-pointer text-center relative overflow-hidden group mb-4.5 animate-pulse-cta"
+        className="w-full bg-yellow-400 hover:bg-yellow-500 active:scale-97 text-slate-950 font-heading rounded-[2rem] sm:rounded-[2.5rem] py-4 px-2 xs:px-4 shadow-[0_12px_28px_rgba(250,204,21,0.35)] hover:shadow-[0_14px_32px_rgba(250,204,21,0.45)] transition-all duration-200 cursor-pointer text-center relative overflow-hidden group mb-4.5 animate-pulse-cta"
       >
         <div className="flex flex-col items-center justify-center leading-tight">
           <span className="text-[13px] xs:text-base sm:text-lg font-black uppercase tracking-tight flex items-center justify-center gap-1 sm:gap-1.5 font-heading whitespace-nowrap">
             Quero este material agora <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 stroke-[3] flex-shrink-0" />
           </span>
-          <span className="text-[9.5px] sm:text-[10px] font-bold tracking-widest uppercase text-pink-100 mt-1 opacity-90 whitespace-nowrap">
+          <span className="text-[9.5px] sm:text-[10px] font-bold tracking-widest uppercase text-slate-800 mt-1 opacity-90 whitespace-nowrap">
             Acesso vitalício e imediato
           </span>
         </div>
@@ -127,14 +125,14 @@ function HeroCTALimitedOffer({ onCTAClick }: { onCTAClick: () => void }) {
       {/* Printer & Secure checkout details with divider */}
       <div className="flex items-center justify-center gap-5 select-none font-sans opacity-95">
         <div className="flex items-center gap-1.5">
-          <Printer className="w-4 h-4 text-pink-500 stroke-[2.2]" />
+          <Printer className="w-4 h-4 text-yellow-500 stroke-[2.2]" />
           <span className="text-[10px] font-extrabold uppercase tracking-wider text-stone-500">
             Imprima e encante
           </span>
         </div>
         <div className="w-[1px] h-3 bg-stone-200"></div>
         <div className="flex items-center gap-1.5">
-          <Lock className="w-4 h-4 text-pink-500 stroke-[2.2]" />
+          <Lock className="w-4 h-4 text-yellow-500 stroke-[2.2]" />
           <span className="text-[10px] font-extrabold uppercase tracking-wider text-stone-500">
             Compra 100% segura
           </span>
@@ -155,13 +153,13 @@ function SectionCTA({
     <div className="flex flex-col items-center w-full max-w-sm sm:max-w-md mx-auto px-4 sm:px-0 mt-6 mb-2">
       <button
         onClick={() => onCTAClick()}
-        className="w-full bg-[#e5007d] hover:bg-[#c40068] active:scale-97 text-white font-heading rounded-[2rem] sm:rounded-[2.5rem] py-4 px-2 xs:px-4 shadow-[0_12px_28px_rgba(229,0,125,0.28)] hover:shadow-[0_14px_32px_rgba(229,0,125,0.35)] transition-all duration-200 cursor-pointer text-center relative overflow-hidden group animate-pulse-cta"
+        className="w-full bg-yellow-400 hover:bg-yellow-500 active:scale-97 text-slate-950 font-heading rounded-[2rem] sm:rounded-[2.5rem] py-4 px-2 xs:px-4 shadow-[0_12px_28px_rgba(250,204,21,0.35)] hover:shadow-[0_14px_32px_rgba(250,204,21,0.45)] transition-all duration-200 cursor-pointer text-center relative overflow-hidden group animate-pulse-cta"
       >
         <div className="flex flex-col items-center justify-center leading-tight">
           <span className="text-[13px] xs:text-base sm:text-lg font-black uppercase tracking-tight flex items-center justify-center gap-1 sm:gap-1.5 font-heading whitespace-nowrap">
             Quero este material agora <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 stroke-[3] flex-shrink-0" />
           </span>
-          <span className="text-[9.5px] sm:text-[10px] font-bold tracking-widest uppercase text-pink-100 mt-1 opacity-90 whitespace-nowrap">
+          <span className="text-[9.5px] sm:text-[10px] font-bold tracking-widest uppercase text-slate-800 mt-1 opacity-90 whitespace-nowrap">
             Acesso vitalício e imediato
           </span>
         </div>
@@ -494,7 +492,7 @@ export default function App() {
     }
     trackInitiateCheckoutEvent(prod);
     if (prod.checkoutUrl) {
-      executeCheckoutRedirect(prod.checkoutUrl);
+      executeCheckoutRedirect(prod.checkoutUrl, prod);
     } else {
       setSelectedProduct(prod);
       setIsCheckoutOpen(true);
@@ -560,15 +558,14 @@ export default function App() {
             <div className="absolute top-10 -right-16 w-40 h-20 bg-white/60 rounded-full blur-md opacity-80"></div>
 
             {/* Core Display Headline */}
-            <h1 className="text-[26px] sm:text-[30px] font-black font-heading text-sky-pastel-950 leading-[1.25] tracking-tight max-w-md mx-auto my-5 text-center px-1">
-              +500 Arquivos STL <br />
-              de Arte Sacra <br />
-              <span className="text-pink-500 inline-block">Prontos para Imprimir</span>
+            <h1 id="main-headline" className="text-[26px] sm:text-[30px] font-black font-heading text-sky-pastel-950 leading-[1.25] tracking-tight max-w-md mx-auto my-5 text-center px-1">
+              Lembrancinhas Setembro Amarelo <br />
+              <span className="text-yellow-500 inline-block">Prontas Para Imprimir</span>
             </h1>
 
             {/* Soft, convincing subheadline */}
             <p className="text-xs sm:text-[13px] text-stone-600 font-sans mt-2.5 leading-snug max-w-sm mx-auto select-none font-medium">
-              Arquivos de alta qualidade testados e prontos para fatiar. Coloque sua impressora 3D para criar peças sacras e faturar no mercado católico.
+              Materiais prontos para imprimir e usar em escolas, empresas, igrejas, grupos e ações de valorização da vida durante o Setembro Amarelo.
             </p>
 
           </header>
@@ -588,14 +585,14 @@ export default function App() {
           {/* SESSÃO O QUE VEM NO LIVRO - AS ORAÇÕES */}
           <section id="conteudo-livro" className="px-5 py-12 bg-sky-50/20 border-t border-b border-stone-100">
             <div className="text-center max-w-sm mx-auto mb-9">
-              <span className="text-[11px] font-bold text-pink-600 bg-pink-50 border border-pink-100 px-4 py-1.5 rounded-full uppercase tracking-wider font-heading shadow-3xs inline-block mb-4">
-                GALERIA DE MODELOS 🏛️
+              <span className="text-[11px] font-bold text-amber-800 bg-amber-50 border border-amber-200 px-4 py-1.5 rounded-full uppercase tracking-wider font-heading shadow-3xs inline-block mb-4">
+                GALERIA DE MATERIAIS 💛
               </span>
               <h3 className="text-2xl sm:text-3xl font-black text-[#0f172a] font-heading leading-tight tracking-tight">
-                Quais Arquivos de Arte Sacra Vêm no Material?
+                O Que Vem no Kit Setembro Amarelo?
               </h3>
               <p className="text-xs sm:text-[13px] text-stone-500 mt-2 font-sans max-w-xs mx-auto">
-                Veja o que você pode fazer com o material:
+                Veja uma prévia dos materiais inclusos:
               </p>
             </div>
 
@@ -603,7 +600,7 @@ export default function App() {
             <BookletCarousel />
 
             <p className="text-xs sm:text-sm text-stone-600 font-sans text-center max-w-xs sm:max-w-sm mx-auto mt-6 leading-relaxed font-medium">
-              Arquivos em altíssima resolução prontos para impressão 3D, pintura e acabamento refinado de imagens sacras.
+              Arquivos em altíssima resolução (PDF e artes prontas), 100% preparados para imprimir e encantar em escolas, empresas, igrejas e eventos.
             </p>
 
             {/* SECTION MATCHED CTA */}
@@ -615,11 +612,11 @@ export default function App() {
           {/* SESSÃO BONÛS (Sweet Bonuses Package for purchasers) */}
           <section id="sessao-bonus" className="px-5 py-16 bg-sky-pastel-50/50 border-t border-b border-sky-pastel-100/50">
             <div className="text-center max-w-2xl mx-auto mb-12 animate-[fadeIn_0.5s_ease-out]">
-              <div className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-pink-50 text-pink-600 text-[11px] font-bold rounded-full border border-pink-100 uppercase tracking-widest font-heading shadow-3xs mb-4">
-                <Gift className="w-4 h-4 text-pink-500 animate-pulse" /> BÔNUS EXCLUSIVOS
+              <div className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-yellow-50 text-yellow-800 text-[11px] font-bold rounded-full border border-yellow-200 uppercase tracking-widest font-heading shadow-3xs mb-4">
+                <Gift className="w-4 h-4 text-yellow-500 animate-pulse" /> BÔNUS EXCLUSIVOS
               </div>
               <h3 className="text-2xl sm:text-3.5xl font-black text-sky-pastel-950 font-heading leading-tight max-w-xl mx-auto px-2">
-                Baixe Hoje e Receba Totalmente Grátis estes <span className="text-pink-500">4 Bônus:</span>
+                Baixe Hoje e Receba Totalmente Grátis estes <span className="text-yellow-500">3 Bônus:</span>
               </h3>
             </div>
 
@@ -631,7 +628,7 @@ export default function App() {
                 <div className="w-full h-64 sm:h-72 select-none flex items-center justify-center mb-6">
                   <img 
                     src={BONUS_MISSA_PATH} 
-                    alt="Guia de Produtos Católicos que Mais Vendem" 
+                    alt="Tags e Cartõezinhos de Apoio" 
                     className="max-w-full max-h-full object-contain drop-shadow-[0_8px_20px_rgba(0,0,0,0.12)] group-hover:scale-102 transition-transform duration-300"
                     referrerPolicy="no-referrer"
                   />
@@ -640,7 +637,7 @@ export default function App() {
                 {/* Yellow Title Badge */}
                 <div className="w-full bg-[#fdee21] px-4 py-3 rounded-2xl text-center shadow-3xs mb-4 select-none">
                   <span className="text-stone-950 font-black text-sm sm:text-base tracking-tight uppercase font-heading leading-tight block">
-                    Guia de Produtos Católicos que Mais Vendem
+                    Tags e Cartõezinhos de Apoio
                   </span>
                 </div>
 
@@ -651,7 +648,7 @@ export default function App() {
 
                 {/* Centered Description */}
                 <p className="text-stone-700 text-center text-xs sm:text-[13.5px] leading-relaxed max-w-[310px] mb-6 font-medium">
-                  Descubra quais peças costumam vender mais rápido para focar sua produção e ter resultados imediatos.
+                  Cartõezinhos com frases acolhedoras para acompanhar as lembrancinhas, como “Você é importante” e “Você não está sozinho”.
                 </p>
 
                 {/* Bottom Value Capsule */}
@@ -667,8 +664,8 @@ export default function App() {
                 {/* Book Cover Container */}
                 <div className="w-full h-64 sm:h-72 select-none flex items-center justify-center mb-6">
                   <img 
-                    src={BONUS_DEC_PATH} 
-                    alt="Tabela de Preços para Produtos 3D Católicos" 
+                    src={BONUS_NS_PATH} 
+                    alt="Cartões para Colorir" 
                     className="max-w-full max-h-full object-contain drop-shadow-[0_8px_20px_rgba(0,0,0,0.12)] group-hover:scale-102 transition-transform duration-300"
                     referrerPolicy="no-referrer"
                   />
@@ -677,7 +674,7 @@ export default function App() {
                 {/* Yellow Title Badge */}
                 <div className="w-full bg-[#fdee21] px-4 py-3 rounded-2xl text-center shadow-3xs mb-4 select-none">
                   <span className="text-stone-950 font-black text-sm sm:text-base tracking-tight uppercase font-heading leading-tight block">
-                    Tabela de Preços para Produtos 3D Católicos
+                    Cartões para Colorir
                   </span>
                 </div>
 
@@ -688,44 +685,7 @@ export default function App() {
 
                 {/* Centered Description */}
                 <p className="text-stone-700 text-center text-xs sm:text-[13.5px] leading-relaxed max-w-[310px] mb-6 font-medium">
-                  Uma referência pronta para você não ficar perdido na hora de precificar seus produtos com margem de lucro.
-                </p>
-
-                {/* Bottom Value Capsule */}
-                <div className="border border-emerald-500/75 bg-emerald-50/20 rounded-full py-2.5 px-6 flex items-center justify-center text-xs sm:text-sm select-none w-full max-w-[280px] sm:max-w-[310px] mx-auto mt-auto">
-                  <span className="text-emerald-700 font-extrabold text-center tracking-wide">
-                    Valor: <span className="line-through text-stone-450 font-normal mx-1">R$ 29,00</span> GRÁTIS
-                  </span>
-                </div>
-              </div>
-
-              {/* Bonus 3 */}
-              <div className="bg-white rounded-[2.5rem] p-6 sm:p-8 flex flex-col items-center text-center relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:scale-[1.01] transition-transform duration-300 group border border-sky-pastel-100/30">
-                {/* Book Cover Container */}
-                <div className="w-full h-64 sm:h-72 select-none flex items-center justify-center mb-6">
-                  <img 
-                    src={BONUS_NS_PATH} 
-                    alt="Guia Rápido de Configuração para Impressão Perfeita" 
-                    className="max-w-full max-h-full object-contain drop-shadow-[0_8px_20px_rgba(0,0,0,0.12)] group-hover:scale-102 transition-transform duration-300"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-
-                {/* Yellow Title Badge */}
-                <div className="w-full bg-[#fdee21] px-4 py-3 rounded-2xl text-center shadow-3xs mb-4 select-none">
-                  <span className="text-stone-950 font-black text-xs sm:text-[14px] tracking-tight uppercase font-heading leading-tight block">
-                    Guia Rápido de Configuração para Impressão Perfeita
-                  </span>
-                </div>
-
-                {/* Dotted Divider */}
-                <div className="text-stone-400 tracking-[0.4em] text-[13px] font-bold mb-4 select-none text-center">
-                  •••••••••••••
-                </div>
-
-                {/* Centered Description */}
-                <p className="text-stone-700 text-center text-xs sm:text-[13.5px] leading-relaxed max-w-[310px] mb-6 font-medium">
-                  Orientações práticas para facilitar seus primeiros testes, calibrações e ajustes com acabamento impecável.
+                  Pequenos cartões com desenhos de girassóis e mensagens positivas, que podem ser entregues junto com a lembrancinha.
                 </p>
 
                 {/* Bottom Value Capsule */}
@@ -736,13 +696,13 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Bonus 4 */}
+              {/* Bonus 3 */}
               <div className="bg-white rounded-[2.5rem] p-6 sm:p-8 flex flex-col items-center text-center relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:scale-[1.01] transition-transform duration-300 group border border-sky-pastel-100/30">
                 {/* Book Cover Container */}
                 <div className="w-full h-64 sm:h-72 select-none flex items-center justify-center mb-6">
                   <img 
                     src={BONUS_APARECIDA_PATH} 
-                    alt="Mockups Prontos para Divulgação" 
+                    alt="Kit de Embalagens Prontas" 
                     className="max-w-full max-h-full object-contain drop-shadow-[0_8px_20px_rgba(0,0,0,0.12)] group-hover:scale-102 transition-transform duration-300"
                     referrerPolicy="no-referrer"
                   />
@@ -751,7 +711,7 @@ export default function App() {
                 {/* Yellow Title Badge */}
                 <div className="w-full bg-[#fdee21] px-4 py-3 rounded-2xl text-center shadow-3xs mb-4 select-none">
                   <span className="text-stone-950 font-black text-sm sm:text-base tracking-tight uppercase font-heading leading-tight block">
-                    Mockups Prontos para Divulgação
+                    Kit de Embalagens Prontas
                   </span>
                 </div>
 
@@ -762,7 +722,7 @@ export default function App() {
 
                 {/* Centered Description */}
                 <p className="text-stone-700 text-center text-xs sm:text-[13.5px] leading-relaxed max-w-[310px] mb-6 font-medium">
-                  Materiais visuais profissionais e prontos para você divulgar nas redes sociais e vender suas peças.
+                  Modelos de toppers, cintas, rótulos e etiquetas combinando com a identidade do Setembro Amarelo, para deixar a lembrancinha mais bonita e profissional.
                 </p>
 
                 {/* Bottom Value Capsule */}
@@ -803,12 +763,12 @@ export default function App() {
                 return (
                   <div 
                     key={product.id}
-                    className={`bg-white rounded-[2rem] pt-10 pb-8 px-5 sm:px-7 border-[3.5px] ${isPremium ? 'border-[#e5007d] scale-95 sm:scale-105 shadow-[0_20px_45px_rgba(229,0,125,0.15)] animate-pulse-premium-card' : 'border-stone-200 scale-95 sm:scale-105'} relative overflow-visible flex flex-col justify-between transition-all duration-305 transform hover:scale-[1.01]`}
+                    className={`bg-white rounded-[2rem] pt-10 pb-8 px-5 sm:px-7 border-[3.5px] ${isPremium ? 'border-yellow-400 scale-95 sm:scale-105 shadow-[0_20px_45px_rgba(250,204,21,0.25)] animate-pulse-premium-card' : 'border-stone-200 scale-95 sm:scale-105'} relative overflow-visible flex flex-col justify-between transition-all duration-305 transform hover:scale-[1.01]`}
                   >
                     <div>
                       {isPremium && (
                         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-                          <div className="bg-[#e5007d] text-white font-heading font-black text-xs sm:text-sm tracking-widest px-8 py-2 rounded-full uppercase whitespace-nowrap shadow-sm">
+                          <div className="bg-yellow-400 text-slate-950 font-heading font-black text-xs sm:text-sm tracking-widest px-8 py-2 rounded-full uppercase whitespace-nowrap shadow-sm">
                             {product.badge}
                           </div>
                         </div>
@@ -929,42 +889,42 @@ export default function App() {
                   {
                     id: 1,
                     question: "O que eu recebo após a compra?",
-                    answer: "Você recebe o acesso ao pack com mais de 500 arquivos STL católicos, além dos bônus e do pack de luminárias 3D incluídos na oferta."
+                    answer: "Você recebe o acesso imediato ao Kit Completo de Lembrancinhas Setembro Amarelo em formato PDF pronto para imprimir, além dos 3 bônus exclusivos inclusos na oferta."
                   },
                   {
                     id: 2,
                     question: "São arquivos físicos ou digitais?",
-                    answer: "São arquivos digitais. Nada é enviado pelos Correios: você recebe o acesso para baixar os modelos."
+                    answer: "São arquivos 100% digitais em altíssima resolução (PDF). Nada é enviado pelos Correios: você recebe o link para baixar e imprimir quantas vezes quiser no seu e-mail e WhatsApp."
                   },
                   {
                     id: 3,
-                    question: "Quantos arquivos STL estão inclusos?",
-                    answer: "Mais de 500 arquivos STL católicos, além dos modelos do pack de luminárias que entra como bônus."
+                    question: "Como faço para imprimir o material?",
+                    answer: "Você pode imprimir em qualquer impressora doméstica comum ou em gráficas rápidas. Os arquivos já vêm no tamanho padrão A4, prontos para imprimir, recortar e montar."
                   },
                   {
                     id: 4,
-                    question: "Preciso ter uma impressora 3D?",
-                    answer: "Sim. Os arquivos STL são feitos para serem impressos em uma impressora 3D — sua ou de um serviço de impressão."
+                    question: "Qual tipo de papel é recomendado?",
+                    answer: "Recomendamos papel sulfite comum (75g ou 90g) para folhetos e cartões simples, ou papel offset/fotográfico de 120g a 180g para tags, caixinhas e lembrancinhas mais firmes."
                   },
                   {
                     id: 5,
                     question: "Posso acessar os arquivos depois?",
-                    answer: "Sim. O acesso é vitalício, então você pode voltar e baixar os modelos quando quiser."
+                    answer: "Sim! O acesso é vitalício, então você pode voltar e baixar os materiais quando quiser e utilizar em todos os seus eventos."
                   },
                   {
                     id: 6,
                     question: "Como recebo meu acesso?",
-                    answer: "Após a confirmação do pagamento, você recebe as informações de acesso por e-mail e WhatsApp."
+                    answer: "Após a confirmação do pagamento, você recebe imediatamente as informações e o link de acesso por e-mail e WhatsApp."
                   },
                   {
                     id: 7,
-                    question: "O pack de luminárias está incluso?",
-                    answer: "Sim. O pack de luminárias 3D entra como bônus, junto com a coleção de arquivos católicos."
+                    question: "Os 3 bônus estão inclusos?",
+                    answer: "Sim! No Plano Completo, você recebe as Tags e Cartõezinhos de Apoio, os Cartões para Colorir e o Kit de Embalagens Prontas totalmente grátis."
                   },
                   {
                     id: 8,
                     question: "Existe garantia?",
-                    answer: "Sim. Você tem 7 dias para conhecer o material, conforme as condições de garantia apresentadas na compra."
+                    answer: "Sim! Você tem 7 dias de garantia incondicional para conhecer todo o material com risco zero."
                   }
                 ].map((faq) => {
                   const isOpen = openGuaranteeFaq === faq.id;
@@ -981,8 +941,8 @@ export default function App() {
                         <span className="text-[#0f172a] font-black text-[13px] sm:text-[14px] leading-snug tracking-tight">
                           {faq.question}
                         </span>
-                        <div className="w-7 h-7 rounded-full bg-pink-50 flex items-center justify-center flex-shrink-0 text-[#e5007d] transition-all duration-300">
-                          <ChevronDown className={`w-3.5 h-3.5 text-[#e5007d] stroke-[3] transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+                        <div className="w-7 h-7 rounded-full bg-yellow-50 flex items-center justify-center flex-shrink-0 text-yellow-600 transition-all duration-300">
+                          <ChevronDown className={`w-3.5 h-3.5 text-yellow-600 stroke-[3] transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
                         </div>
                       </button>
                       
@@ -1025,17 +985,17 @@ export default function App() {
             setShowUpsellPopup(false);
             const upsellProduct: Product = {
               id: 'upsell-17',
-              name: 'Kit Completo + 6 Bônus Exclusivos',
+              name: 'Kit Completo + 3 Bônus Exclusivos',
               badge: 'Oferta Especial',
-              imageUrl: 'https://iili.io/CbAjv8x.md.webp',
+              imageUrl: 'https://iili.io/nJzKxJs.md.png',
               price: 17.00,
               originalPrice: 47.00,
               description: 'Aproveite esta oportunidade única para levar o material completo com desconto especial.',
               features: [],
               ctaText: 'Quero o Material Completo',
-              checkoutUrl: 'https://pay.wiapy.com/AVlLBRc-cmpo'
+              checkoutUrl: 'https://pay.lowify.com.br/checkout?product_id=KnhWlf'
             };
-            executeCheckoutRedirect('https://pay.wiapy.com/AVlLBRc-cmpo', upsellProduct);
+            executeCheckoutRedirect('https://pay.lowify.com.br/checkout?product_id=KnhWlf', upsellProduct);
           }}
           onDecline={() => {
             setShowUpsellPopup(false);
@@ -1043,15 +1003,15 @@ export default function App() {
               id: 'basico',
               name: 'PLANO BÁSICO',
               badge: 'ESSENCIAL',
-              imageUrl: 'https://iili.io/CUEAZSn.md.jpg',
+              imageUrl: 'https://iili.io/nJzKxJs.md.png',
               price: 10.00,
               originalPrice: 27.00,
               description: 'Acesso vitalício aos arquivos essenciais.',
               features: [],
               ctaText: 'Quero o plano básico',
-              checkoutUrl: 'https://pay.wiapy.com/RmjA5Y0e0ZjP'
+              checkoutUrl: 'https://pay.lowify.com.br/checkout?product_id=tqWy7x'
             };
-            executeCheckoutRedirect('https://pay.wiapy.com/RmjA5Y0e0ZjP', basicoProduct);
+            executeCheckoutRedirect('https://pay.lowify.com.br/checkout?product_id=tqWy7x', basicoProduct);
           }}
         />
       )}

@@ -5,27 +5,27 @@ export const TESTIMONIAL_IMAGES = [
   {
     id: 1,
     alt: 'Depoimento de Cliente 1',
-    url: 'https://iili.io/CDZN7vj.md.webp',
+    url: 'https://iili.io/nJz3Jrg.md.png',
   },
   {
     id: 2,
     alt: 'Depoimento de Cliente 2',
-    url: 'https://iili.io/CDZN5Yb.md.webp',
+    url: 'https://iili.io/nJz322a.md.png',
   },
   {
     id: 3,
     alt: 'Depoimento de Cliente 3',
-    url: 'https://iili.io/CDZNYyx.md.webp',
+    url: 'https://iili.io/nJz3Fkv.md.png',
   },
   {
     id: 4,
     alt: 'Depoimento de Cliente 4',
-    url: 'https://iili.io/CDZNcTQ.md.webp',
+    url: 'https://iili.io/nJz3KpR.md.png',
   },
   {
     id: 5,
     alt: 'Depoimento de Cliente 5',
-    url: 'https://iili.io/CDZNljV.md.webp',
+    url: 'https://iili.io/nJz3qIp.md.png',
   },
 ];
 
@@ -62,7 +62,7 @@ export default function Testimonials() {
           Quem Já Adquiriu Recomenda!
         </h3>
         <p className="text-[12.5px] sm:text-xs text-stone-500 mt-2 font-sans max-w-xs mx-auto leading-relaxed">
-          Veja mensagens enviadas por quem já está imprimindo e lucrando com as peças de arte sacra:
+          Veja mensagens enviadas por quem já adquiriu e está usando o material:
         </p>
       </div>
 

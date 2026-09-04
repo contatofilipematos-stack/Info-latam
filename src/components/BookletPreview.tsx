@@ -143,7 +143,7 @@ export default function BookletPreview({ coverImageUrl }: BookletPreviewProps) {
                 />
               </div>
             )}
-            <span className="text-[9px] font-bold text-pink-500 uppercase tracking-wider block font-heading">
+            <span className="text-[9px] font-bold text-yellow-600 uppercase tracking-wider block font-heading">
               {activePage.subTitle}
             </span>
             <h4 className="text-sm font-bold text-sky-pastel-955 font-heading text-sky-pastel-900 border-b border-dashed border-sky-pastel-200 pb-1 px-3 mt-0.5">
@@ -165,7 +165,7 @@ export default function BookletPreview({ coverImageUrl }: BookletPreviewProps) {
 
           {/* Bottom illustration indicator description */}
           <div className="z-10 text-center text-[9px] text-sky-pastel-600 bg-sky-pastel-50/70 p-2 rounded-lg border border-sky-pastel-100 flex items-center justify-center gap-1">
-            <Sparkles className="w-3.5 h-3.5 text-pink-400 fill-pink-300 flex-shrink-0" />
+            <Sparkles className="w-3.5 h-3.5 text-yellow-500 fill-yellow-300 flex-shrink-0" />
             <span className="font-heading">Versão Física Idealizada: {activePage.illustrationDesc}</span>
           </div>
 
@@ -200,7 +200,7 @@ export default function BookletPreview({ coverImageUrl }: BookletPreviewProps) {
         </button>
 
         <span className="text-[10px] text-stone-500 font-sans flex items-center gap-1 font-medium">
-          <Heart className="w-3 h-3 text-pink-400 fill-pink-300" /> Folheie o PDF
+          <Heart className="w-3 h-3 text-yellow-500 fill-yellow-300" /> Folheie o PDF
         </span>
 
         <button
